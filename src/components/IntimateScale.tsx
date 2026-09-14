@@ -27,7 +27,7 @@ export default function IntimateScale({ onRequestDownload, onOpenEnquiry }: Inti
           <Building2 className="h-5 w-5" />
         </div>
       ),
-      title: "The Pavilion – Social House",
+      title: "The Pavilion: Social House",
       description: "Designed as an exclusive retreat for leisure, wellness, and connection, bringing together 14,962 sq.ft. of curated amenities.",
     },
     {
@@ -85,7 +85,7 @@ export default function IntimateScale({ onRequestDownload, onOpenEnquiry }: Inti
     },
     {
       src: "/assets/silver_horizon/living_room_skyline.webp",
-      alt: "10-Foot Ceiling Living Room",
+      alt: "10 Foot Ceiling Living Room",
     },
     {
       src: "/assets/silver_horizon/balcony_sunset_panorama.webp",
@@ -97,7 +97,7 @@ export default function IntimateScale({ onRequestDownload, onOpenEnquiry }: Inti
     },
     {
       src: "/assets/silver_horizon/indoor_pool.webp",
-      alt: "Indoor Temperature-Controlled Pool",
+      alt: "Indoor Temperature Controlled Pool",
     },
     {
       src: "/assets/silver_horizon/pavilion_amphitheatre.webp",
@@ -126,7 +126,7 @@ export default function IntimateScale({ onRequestDownload, onOpenEnquiry }: Inti
           {/* Right Description */}
           <div className="lg:col-span-6 space-y-4">
             <p className="text-sm sm:text-base text-gray-500 leading-relaxed font-normal">
-              A select few redefine everyday living. Silver Horizon brings together Mediterranean-inspired architecture, expansive residences, and curated experiences into one remarkable address.
+              A select few redefine everyday living. Silver Horizon brings together Mediterranean inspired architecture, expansive residences, and curated experiences into one remarkable address.
             </p>
           </div>
 

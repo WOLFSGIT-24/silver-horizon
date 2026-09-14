@@ -123,7 +123,7 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
                   Schedule your private tour
                 </h3>
                 <p className="text-xs text-gray-500 leading-relaxed font-normal">
-                  Experience the 32-storey landmark, Mediterranean architectural finesse, and 14,962 sq.ft. Pavilion Clubhouse in person.
+                  Experience the 32 storey landmark, Mediterranean architectural finesse, and 14,962 sq.ft. Pavilion Clubhouse in person.
                 </p>
               </div>
 
@@ -184,7 +184,7 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
                       pattern="[0-9]{10}"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="Enter 10-digit mobile number"
+                      placeholder="Enter 10 digit mobile number"
                       className="w-full bg-transparent text-xs sm:text-sm font-body outline-none placeholder:text-gray-400"
                     />
                   </div>
@@ -202,8 +202,8 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
                     onChange={handleChange}
                     className="w-full border border-[#E5DED3] rounded-lg px-3 py-2 bg-[#FAF8F5] text-xs sm:text-sm font-body outline-none focus:border-[#0E172A] focus:bg-white"
                   >
-                    <option value="3 BHK (1890 - 2015 SQFT)">3 BHK Residences (1890 – 2015 SQFT)</option>
-                    <option value="4 BHK Duplex (2975 - 3480 SQFT)">4 BHK Duplex Sky Collection (32nd Floor)</option>
+                    <option value="3 BHK (1890 to 2015 SQFT)">3 BHK Residences (1890 to 2015 SQFT)</option>
+                    <option value="4 BHK Duplex (2975 to 3480 SQFT)">4 BHK Duplex Sky Collection (32nd Floor)</option>
                     <option value="Both Options">Explore All Configurations</option>
                   </select>
                 </div>

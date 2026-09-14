@@ -13,7 +13,7 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
     fullName: "",
     email: "",
     phone: "",
-    unitPreference: "3 BHK (1890 - 2015 SQFT)",
+    unitPreference: "3 BHK (1890 to 2015 SQFT)",
     agree: true,
   });
   const [loading, setLoading] = useState(false);
@@ -186,7 +186,7 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
                     pattern="[0-9]{10}"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="Enter 10-digit mobile number"
+                    placeholder="Enter 10 digit mobile number"
                     className="w-full bg-transparent text-sm outline-none font-body"
                   />
                 </div>
@@ -203,8 +203,8 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
                   onChange={handleChange}
                   className="w-full bg-[#FAF8F5] border border-[#E5DED3] rounded-lg px-3.5 py-2.5 text-sm outline-none focus:border-[#0E172A] focus:bg-white font-body"
                 >
-                  <option value="3 BHK (1890 - 2015 SQFT)">3 BHK Residences (1890 – 2015 SQFT)</option>
-                  <option value="4 BHK Duplex (2975 - 3480 SQFT)">4 BHK Duplex Sky Collection (32nd Floor)</option>
+                  <option value="3 BHK (1890 to 2015 SQFT)">3 BHK Residences (1890 to 2015 SQFT)</option>
+                  <option value="4 BHK Duplex (2975 to 3480 SQFT)">4 BHK Duplex Sky Collection (32nd Floor)</option>
                   <option value="All Configurations">Explore All Configurations</option>
                 </select>
               </div>

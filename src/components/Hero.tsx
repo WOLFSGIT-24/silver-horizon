@@ -65,7 +65,7 @@ export default function Hero({ onOpenEnquiry, onRequestDownload }: HeroProps) {
         <p 
           className="font-body text-xs sm:text-base md:text-lg text-white/95 max-w-2xl leading-relaxed drop-shadow opacity-0 animate-[heroFadeUp_1s_cubic-bezier(0.16,1,0.3,1)_0.4s_forwards]"
         >
-          Uncover a world of 3 & 4 BHK Mediterranean-inspired residences & sky duplexes. <br className="hidden md:inline" />
+          Uncover a world of 3 & 4 BHK Mediterranean inspired residences & sky duplexes. <br className="hidden md:inline" />
           Your perfect sanctuary at Silver Horizon awaits just a search away!
         </p>
 

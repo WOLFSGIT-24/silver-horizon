@@ -26,7 +26,7 @@ export default function MasterPlan({ onSelectUnit, onOpenBooking }: MasterPlanPr
           {/* Right Description & Action */}
           <div className="lg:col-span-6 space-y-4">
             <p className="text-sm sm:text-base text-gray-500 leading-relaxed font-normal">
-              Thoughtfully configured across expansive landscaped grounds with 76% open space, pedestrian walkways, dedicated recreational zones, and seamless access to the upcoming 65-meter Peripheral Ring Road.
+              Thoughtfully configured across expansive landscaped grounds with 76% open space, pedestrian walkways, dedicated recreational zones, and seamless access to the upcoming 65 meter Peripheral Ring Road.
             </p>
             <div>
               <button
@@ -69,11 +69,11 @@ export default function MasterPlan({ onSelectUnit, onOpenBooking }: MasterPlanPr
           <div className="mt-6 pt-5 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500 font-medium">
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#161A22]" />
-              Adjoining 65-Meter (213 FT) Peripheral Ring Road / Bangalore Business Corridor
+              Adjoining 65 Meter (213 FT) Peripheral Ring Road / Bangalore Business Corridor
             </span>
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#8C7A6B]" />
-              Fronting 40–60 Feet Primary Access Road
+              Fronting 40 to 60 Feet Primary Access Road
             </span>
           </div>
 
@@ -94,7 +94,7 @@ export default function MasterPlan({ onSelectUnit, onOpenBooking }: MasterPlanPr
             <div className="flex justify-between items-center pb-4 border-b border-gray-100">
               <div>
                 <h3 className="text-xl sm:text-2xl font-normal text-[#161A22] tracking-tight">
-                  Silver Horizon — Site Master Plan
+                  Silver Horizon: Site Master Plan
                 </h3>
                 <p className="text-xs text-gray-500">
                   76% Open Landscaped Grounds & Key Architectural Layout

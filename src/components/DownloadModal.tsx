@@ -190,7 +190,7 @@ export default function DownloadModal({
                     pattern="[0-9]{10}"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="Enter 10-digit mobile number"
+                    placeholder="Enter 10 digit mobile number"
                     className="w-full bg-transparent border-none text-xs sm:text-sm font-body outline-none placeholder:text-gray-400 py-1"
                   />
                 </div>

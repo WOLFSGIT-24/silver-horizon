@@ -26,7 +26,7 @@ export default function FloorPlans({
       image: "/assets/silver_horizon/unit_plan_01.webp",
       tag: "3 Bedrooms / 3 Bath",
       name: "Unit 01 Residence",
-      location: "West Facing • 10-Ft Ceilings",
+      location: "West Facing • 10 Ft Ceilings",
       sizeBadge: "1,890 SQFT",
     },
     {
@@ -114,7 +114,7 @@ export default function FloorPlans({
           {/* Right Description & Action */}
           <div className="lg:col-span-6 space-y-5">
             <p className="text-sm sm:text-base text-gray-500 leading-relaxed font-normal">
-              Expansive 3 & 4 BHK residences and 32nd-floor sky duplexes crafted with 10-foot ceiling heights, three-side ventilation, and sunlit private decks.
+              Expansive 3 & 4 BHK residences and 32nd floor sky duplexes crafted with 10 foot ceiling heights, three side ventilation, and sunlit private decks.
             </p>
             <div>
               <button

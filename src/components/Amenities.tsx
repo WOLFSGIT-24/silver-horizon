@@ -11,25 +11,25 @@ export default function Amenities({ onOpenBooking, onRequestDownload }: Amenitie
     {
       src: "/assets/silver_horizon/indoor_pool.webp",
       title: "The Pavilion Clubhouse",
-      subtitle: "Indoor Temperature-Controlled Heated Pool & Sun Deck",
+      subtitle: "Indoor Temperature Controlled Heated Pool & Sun Deck",
       category: "14,962 SQFT OF LUXURY",
     },
     {
       src: "/assets/silver_horizon/pavilion_amphitheatre.webp",
       title: "Nature & Community",
-      subtitle: "Open-Air Amphitheatre with Giant Outdoor LED Screen",
+      subtitle: "Open Air Amphitheatre with Giant Outdoor LED Screen",
       category: "SERENITY & CONNECTION",
     },
     {
       src: "/assets/silver_horizon/grand_lobby.webp",
       title: "Grand Arrival Lobby",
-      subtitle: "Triple-Height Welcoming Lounge with Mediterranean Aesthetics",
+      subtitle: "Triple Height Welcoming Lounge with Mediterranean Aesthetics",
       category: "UNDERSTATED LUXURY",
     },
     {
       src: "/assets/silver_horizon/sport_basketball.webp",
       title: "Active Living Arena",
-      subtitle: "Full-Sized Multipurpose Basketball & Pickleball Court",
+      subtitle: "Full Sized Multipurpose Basketball & Pickleball Court",
       category: "HEALTH & MOVEMENT",
     },
     {
@@ -40,14 +40,14 @@ export default function Amenities({ onOpenBooking, onRequestDownload }: Amenitie
     },
     {
       src: "/assets/silver_horizon/coworking_space.webp",
-      title: "Co-Working & Business Lounge",
-      subtitle: "Quiet Meeting Pods, High-Speed Connectivity & Private Workstations",
+      title: "Coworking & Business Lounge",
+      subtitle: "Quiet Meeting Pods, High Speed Connectivity & Private Workstations",
       category: "14,962 SQFT SOCIAL HOUSE",
     },
     {
       src: "/assets/silver_horizon/indoor_gym.webp",
       title: "Strength & Cardio Gymnasium",
-      subtitle: "State-of-the-Art Fitness Equipment with Open Landscape Views",
+      subtitle: "State of the Art Fitness Equipment with Open Landscape Views",
       category: "HEALTH & WELLNESS",
     },
     {

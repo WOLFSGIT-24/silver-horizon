@@ -14,7 +14,7 @@ const galleryImages = [
   },
   {
     src: "/assets/silver_horizon/living_room_skyline.webp",
-    title: "10-Ft High Living Room",
+    title: "10 Ft High Living Room",
     category: "Residences",
   },
   {
@@ -79,7 +79,7 @@ export default function Gallery() {
           {/* Right Description */}
           <div className="lg:col-span-6 space-y-4">
             <p className="text-sm sm:text-base text-gray-500 leading-relaxed font-normal">
-              Take a visual tour through Mediterranean grandeur, 10-foot ceilings, and elevated sky balconies designed for uncompromised luxury.
+              Take a visual tour through Mediterranean grandeur, 10 foot ceilings, and elevated sky balconies designed for uncompromised luxury.
             </p>
           </div>
 

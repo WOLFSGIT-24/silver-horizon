@@ -32,7 +32,7 @@ export default function Location({ onOpenEnquiry }: LocationProps) {
         allowFullScreen={true}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
-        title="Silver Horizon - Green Edge Infracon Location"
+        title="Silver Horizon | Green Edge Infracon Location"
         className="w-full h-full"
       />
     );
@@ -55,7 +55,7 @@ export default function Location({ onOpenEnquiry }: LocationProps) {
           {/* Right Description */}
           <div className="lg:col-span-6 space-y-4">
             <p className="text-sm sm:text-base text-gray-500 leading-relaxed font-normal">
-              Adjoining the upcoming 65-meter Peripheral Ring Road with direct signal-free arterial connectivity to Whitefield, ITPL, and Kempegowda International Airport.
+              Adjoining the upcoming 65 meter Peripheral Ring Road with direct signal free arterial connectivity to Whitefield, ITPL, and Kempegowda International Airport.
             </p>
           </div>
 

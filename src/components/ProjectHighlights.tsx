@@ -24,7 +24,7 @@ export default function ProjectHighlights({ onRequestDownload, onOpenBooking }: 
           {/* Right Description */}
           <div className="lg:col-span-6 space-y-4">
             <p className="text-sm sm:text-base text-gray-500 leading-relaxed font-normal">
-              Set in Bengaluru’s fast-emerging North-East corridor between Whitefield and Hoskote, adjoining the upcoming 65-meter Peripheral Ring Road (PRR).
+              Set in Bengaluru’s fast emerging North East corridor between Whitefield and Hoskote, adjoining the upcoming 65 meter Peripheral Ring Road (PRR).
             </p>
           </div>
 

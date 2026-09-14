@@ -53,7 +53,7 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
           <div className="space-y-2">
             <h3 className="font-display text-lg font-bold text-[#0E172A]">1. Project Representation</h3>
             <p>
-              Silver Horizon is a 32-storey residential landmark comprising 3 & 4 BHK residences and sky duplexes situated at KhajiSonnenahalli, Bidarahalli Hobli, Bangalore East. All architectural representations, master plans, floor layouts, and 3D visual renderings are artistic impressions.
+              Silver Horizon is a 32 storey residential landmark comprising 3 & 4 BHK residences and sky duplexes situated at KhajiSonnenahalli, Bidarahalli Hobli, Bangalore East. All architectural representations, master plans, floor layouts, and 3D visual renderings are artistic impressions.
             </p>
           </div>
 

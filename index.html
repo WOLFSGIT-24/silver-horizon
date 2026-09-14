@@ -31,13 +31,200 @@
     
     <!-- Material Symbols (Deferred non-blocking) -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" media="print" onload="this.media='all'" />
+    <!-- Critical Inline Styles for Sub-Second FCP & LCP -->
+    <style>
+      :root {
+        --color-navy-dark: #090f1d;
+        --color-marble: #faf8f5;
+        --color-gold: #c5a880;
+      }
+      body {
+        margin: 0;
+        background-color: #090F1D;
+        font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: #161A22;
+        -webkit-font-smoothing: antialiased;
+      }
+      .prerender-hero {
+        position: relative;
+        width: 100%;
+        min-height: 92vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        background-color: #8bb4dd;
+      }
+      .prerender-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+      }
+      .prerender-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: bottom;
+      }
+      @media (min-width: 640px) {
+        .prerender-img {
+          object-position: center;
+        }
+      }
+      .prerender-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5rem;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1rem;
+        box-sizing: border-box;
+      }
+      @media (min-width: 640px) {
+        .prerender-header {
+          padding: 0 2rem;
+        }
+      }
+      .prerender-content {
+        max-width: 56rem;
+        margin: auto;
+        padding: 0.5rem 1rem 4rem;
+        position: relative;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .prerender-h1 {
+        font-size: 1.875rem;
+        line-height: 1.15;
+        font-weight: 500;
+        letter-spacing: -0.025em;
+        color: #ffffff;
+        margin: 0 0 1rem 0;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      }
+      @media (min-width: 640px) {
+        .prerender-h1 {
+          font-size: 3rem;
+        }
+      }
+      @media (min-width: 768px) {
+        .prerender-h1 {
+          font-size: 3.75rem;
+        }
+      }
+      .prerender-p {
+        font-size: 0.75rem;
+        line-height: 1.5;
+        color: rgba(255,255,255,0.95);
+        max-width: 42rem;
+        margin: 0 0 1.25rem 0;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      }
+      @media (min-width: 640px) {
+        .prerender-p {
+          font-size: 1rem;
+        }
+      }
+      .prerender-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(9,15,29,0.9);
+        color: #ffffff;
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 0.875rem 2rem;
+        border-radius: 9999px;
+        border: 1px solid rgba(255,255,255,0.2);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        letter-spacing: 0.025em;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      @media (min-width: 640px) {
+        .prerender-btn {
+          font-size: 0.875rem;
+        }
+      }
+    </style>
   </head>
   <body class="bg-[#090F1D] text-[#161A22] antialiased selection:bg-[#C5A880] selection:text-white">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKP6JNS8"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div id="root"></div>
+    
+    <div id="root">
+      <div class="relative min-h-screen bg-[#090F1D] text-[#161A22] overflow-x-hidden w-full font-body">
+        <!-- Static Prerender Header -->
+        <header class="prerender-header">
+          <a href="#overview" class="flex items-center gap-2">
+            <img src="/assets/silver_horizon/SH_logo.svg" alt="Silver Horizon Logo" class="h-12 sm:h-16 w-auto object-contain" width="160" height="64" />
+          </a>
+          <a href="tel:+919876543210" class="flex items-center gap-2 bg-[#FAF8F5]/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-white text-xs font-medium">
+            <span>Enquire</span>
+          </a>
+        </header>
+
+        <!-- Static Prerender Hero for Instant LCP -->
+        <section id="overview" class="prerender-hero">
+          <div class="prerender-bg">
+            <picture>
+              <source media="(max-width: 640px)" srcset="/assets/silver_horizon/banner_mobile.webp" type="image/webp" />
+              <img
+                src="/assets/silver_horizon/banner.webp"
+                alt="Silver Horizon Mediterranean Architectural Landmark"
+                class="prerender-img"
+                fetchpriority="high"
+                loading="eager"
+                decoding="async"
+                width="1326"
+                height="900"
+              />
+            </picture>
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(27,75,130,0.45), transparent, transparent);pointer-events:none;"></div>
+            <div style="position:absolute;bottom:0;left:0;right:0;height:10rem;background:linear-gradient(to top, #FAF8F5, rgba(250,248,245,0.8), transparent);pointer-events:none;"></div>
+          </div>
+
+          <div style="height:7rem;width:100%;position:relative;z-index:10;"></div>
+
+          <div class="prerender-content">
+            <h1 class="prerender-h1">
+              Discover your ideal <br />
+              elevated home today
+            </h1>
+            <p class="prerender-p">
+              Uncover a world of 3 & 4 BHK Mediterranean inspired residences & sky duplexes. <br />
+              Your perfect sanctuary at Silver Horizon awaits just a search away!
+            </p>
+            <div style="padding-top:0.5rem;display:flex;justify-content:center;gap:0.75rem;">
+              <span class="prerender-btn">
+                Book today
+              </span>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0.5rem;padding-top:0.75rem;font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.9);text-shadow:0 1px 3px rgba(0,0,0,0.3);">
+              <span>32 Storeys</span>
+              <span>•</span>
+              <span>14,962 Sq.Ft Clubhouse</span>
+              <span>•</span>
+              <span>East Bengaluru (Adjoining PRR)</span>
+            </div>
+          </div>
+
+          <div style="height:2.5rem;width:100%;position:relative;z-index:10;"></div>
+        </section>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

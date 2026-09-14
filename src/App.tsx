@@ -1,19 +1,20 @@
 import React, { useState, useEffect, Suspense, lazy } from "react";
-import { Phone } from "lucide-react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import IntimateScale from "./components/IntimateScale";
-import ProjectHighlights from "./components/ProjectHighlights";
-import Amenities from "./components/Amenities";
-import MasterPlan from "./components/MasterPlan";
-import FloorPlans from "./components/FloorPlans";
-import Specifications from "./components/Specifications";
-import Location from "./components/Location";
-import BrochureForm from "./components/BrochureForm";
-import Footer from "./components/Footer";
-import Gallery from "./components/Gallery";
 import { LeadSubmission } from "./types";
 import { projectSnapshot } from "./data";
+
+// Lazy-load below-the-fold components to maximize mobile FCP / LCP performance
+const IntimateScale = lazy(() => import("./components/IntimateScale"));
+const ProjectHighlights = lazy(() => import("./components/ProjectHighlights"));
+const Amenities = lazy(() => import("./components/Amenities"));
+const MasterPlan = lazy(() => import("./components/MasterPlan"));
+const FloorPlans = lazy(() => import("./components/FloorPlans"));
+const Specifications = lazy(() => import("./components/Specifications"));
+const Location = lazy(() => import("./components/Location"));
+const BrochureForm = lazy(() => import("./components/BrochureForm"));
+const Footer = lazy(() => import("./components/Footer"));
+const Gallery = lazy(() => import("./components/Gallery"));
 
 // Lazy load dialog modals to reduce initial JavaScript execution
 const BookingModal = lazy(() => import("./components/BookingModal"));
@@ -174,52 +175,63 @@ export default function App() {
         onRequestDownload={handleRequestDownload}
       />
 
-      {/* Property Architecture & Landmark Overview */}
-      <IntimateScale 
-        onRequestDownload={handleRequestDownload} 
-        onOpenEnquiry={handleHeroEnquiry}
-      />
+      {/* Below-the-fold sections loaded asynchronously */}
+      <Suspense fallback={<div className="min-h-screen bg-[#090F1D]" />}>
+        {/* Property Architecture & Landmark Overview */}
+        <IntimateScale 
+          onRequestDownload={handleRequestDownload} 
+          onOpenEnquiry={handleHeroEnquiry}
+        />
 
-      {/* Project Highlights 8-Key Stats Grid */}
-      <ProjectHighlights
-        onRequestDownload={handleRequestDownload}
-        onOpenBooking={handleHeroEnquiry}
-      />
+        {/* Project Highlights 8-Key Stats Grid */}
+        <ProjectHighlights
+          onRequestDownload={handleRequestDownload}
+          onOpenBooking={handleHeroEnquiry}
+        />
 
-      {/* Integrated Architectural Master Plan */}
-      <MasterPlan 
-        onSelectUnit={handleSelectUnitType} 
-        onOpenBooking={handleHeroEnquiry}
-      />
+        {/* Integrated Architectural Master Plan */}
+        <MasterPlan 
+          onSelectUnit={handleSelectUnitType} 
+          onOpenBooking={handleHeroEnquiry}
+        />
 
-      {/* Curated Amenities Showcase (Clubhouse, Sports, Nature, Smart Living) */}
-      <Amenities 
-        onOpenBooking={handleHeroEnquiry} 
-        onRequestDownload={handleRequestDownload}
-      />
+        {/* Curated Amenities Showcase (Clubhouse, Sports, Nature, Smart Living) */}
+        <Amenities 
+          onOpenBooking={handleHeroEnquiry} 
+          onRequestDownload={handleRequestDownload}
+        />
 
-      {/* Interactive Floor Drafting Plans (Units 01-07, 4 BHK Duplex) */}
-      <FloorPlans 
-        onSelectUnit={handleSelectUnitType} 
-        isUnlocked={floorPlansUnlocked}
-        onUnlockRequest={() => setBookingOpen(true)}
-        onOpenBooking={handleHeroEnquiry}
-      />
+        {/* Interactive Floor Drafting Plans (Units 01-07, 4 BHK Duplex) */}
+        <FloorPlans 
+          onSelectUnit={handleSelectUnitType} 
+          isUnlocked={floorPlansUnlocked}
+          onUnlockRequest={() => setBookingOpen(true)}
+          onOpenBooking={handleHeroEnquiry}
+        />
 
-      {/* Comprehensive Premium & Room Specifications */}
-      <Specifications />
+        {/* Comprehensive Premium & Room Specifications */}
+        <Specifications />
 
-      {/* Visual Living Spaces Gallery */}
-      <Gallery />
+        {/* Visual Living Spaces Gallery */}
+        <Gallery />
 
-      {/* Location Connectivity Grid & Regional Infrastructure */}
-      <Location onOpenEnquiry={handleHeroEnquiry} />
+        {/* Location Connectivity Grid & Regional Infrastructure */}
+        <Location onOpenEnquiry={handleHeroEnquiry} />
 
-      {/* Brochure / Lead Intake Form Section */}
-      <BrochureForm 
-        onAddLead={handleAddLead} 
-        preselectedUnit={preselectedUnit} 
-      />
+        {/* Brochure / Lead Intake Form Section */}
+        <BrochureForm 
+          onAddLead={handleAddLead} 
+          preselectedUnit={preselectedUnit} 
+        />
+
+        {/* Global Footer */}
+        <Footer 
+          onOpenPrivacy={() => setPrivacyOpen(true)}
+          onOpenTerms={() => setTermsOpen(true)}
+          onOpenBooking={handleHeroEnquiry}
+          onRequestDownload={handleRequestDownload}
+        />
+      </Suspense>
 
       {/* Legal & CRM Modals - Conditionally Loaded via Suspense */}
       <Suspense fallback={null}>

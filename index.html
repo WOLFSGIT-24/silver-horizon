@@ -60,7 +60,7 @@
       }
       @media (min-width: 640px) {
         .prerender-img {
-          object-position: center;
+          object-position: center top;
         }
       }
       .prerender-header {
@@ -81,16 +81,35 @@
           padding: 0 2rem;
         }
       }
-      .prerender-content {
-        max-width: 56rem;
+      .prerender-wrapper {
+        width: 100%;
+        max-width: 80rem;
         margin: auto;
         padding: 0.5rem 1rem 4rem;
         position: relative;
         z-index: 10;
         display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+      @media (min-width: 768px) {
+        .prerender-wrapper {
+          justify-content: flex-end;
+          padding: 0.5rem 2rem 8rem;
+        }
+      }
+      .prerender-content {
+        max-width: 40rem;
+        display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        text-align: center;
+      }
+      @media (min-width: 768px) {
+        .prerender-content {
+          align-items: flex-end;
+          text-align: right;
+        }
       }
       .prerender-h1 {
         font-size: 1.875rem;
@@ -115,7 +134,7 @@
         font-size: 0.75rem;
         line-height: 1.5;
         color: rgba(255,255,255,0.95);
-        max-width: 42rem;
+        max-width: 36rem;
         margin: 0 0 1.25rem 0;
         text-shadow: 0 1px 3px rgba(0,0,0,0.3);
       }
@@ -182,26 +201,28 @@
 
           <div style="height:7rem;width:100%;position:relative;z-index:10;"></div>
 
-          <div class="prerender-content">
-            <h1 class="prerender-h1">
-              Discover your ideal <br />
-              elevated home today
-            </h1>
-            <p class="prerender-p">
-              Uncover a world of 3 & 4 BHK Mediterranean inspired residences & sky duplexes. <br />
-              Your perfect sanctuary at Silver Horizon awaits just a search away!
-            </p>
-            <div style="padding-top:0.5rem;display:flex;justify-content:center;gap:0.75rem;">
-              <span class="prerender-btn">
-                Book today
-              </span>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0.5rem;padding-top:0.75rem;font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.9);text-shadow:0 1px 3px rgba(0,0,0,0.3);">
-              <span>32 Storeys</span>
-              <span>•</span>
-              <span>14,962 Sq.Ft Clubhouse</span>
-              <span>•</span>
-              <span>East Bengaluru (Adjoining PRR)</span>
+          <div class="prerender-wrapper">
+            <div class="prerender-content">
+              <h1 class="prerender-h1">
+                Discover your ideal <br />
+                elevated home today
+              </h1>
+              <p class="prerender-p">
+                Uncover a world of 3 & 4 BHK Mediterranean inspired residences & sky duplexes. <br />
+                Your perfect sanctuary at Silver Horizon awaits just a search away!
+              </p>
+              <div style="padding-top:0.5rem;display:flex;justify-content:center;gap:0.75rem;">
+                <span class="prerender-btn">
+                  Book today
+                </span>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0.5rem;padding-top:0.75rem;font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.9);text-shadow:0 1px 3px rgba(0,0,0,0.3);">
+                <span>32 Storeys</span>
+                <span>•</span>
+                <span>14,962 Sq.Ft Clubhouse</span>
+                <span>•</span>
+                <span>East Bengaluru (Adjoining PRR)</span>
+              </div>
             </div>
           </div>
 

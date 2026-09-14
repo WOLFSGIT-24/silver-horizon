@@ -100,12 +100,12 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
   };
 
   return (
-    <section id="lead-capture-section" className="w-full relative min-h-[540px] md:min-h-[600px] overflow-hidden flex items-center py-10 md:py-16">
+    <section id="lead-capture-section" className="w-full relative min-h-[560px] md:min-h-[640px] overflow-hidden flex items-center py-12 md:py-20">
       {/* Full-bleed Background Image with tower clearly visible on the left */}
       <img
         src="/assets/silver_horizon/tower_day_view.webp"
         alt="Silver Horizon Luxury Architecture"
-        className="absolute inset-0 w-full h-full object-cover object-[20%_center] sm:object-[25%_center] lg:object-[35%_center]"
+        className="absolute inset-0 w-full h-full object-cover object-[20%_top] sm:object-[25%_top] lg:object-[35%_top]"
         loading="lazy"
         decoding="async"
       />

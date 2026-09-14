@@ -77,14 +77,6 @@ export default function FloorPlans({
       location: "East Facing • Vastu Compliant",
       sizeBadge: "1,985 SQFT",
     },
-    {
-      unitData: floorPlansData[7] || floorPlansData[0], // Typical Floor Plate
-      image: "/assets/silver_horizon/typical_floor_plate.webp",
-      tag: "7 Units / Floor Plate",
-      name: "Typical Tower Plate",
-      location: "G + 32 Storeys • 4 High-Speed Lifts",
-      sizeBadge: "Master Layout",
-    },
   ];
 
   const totalCards = residenceCards.length;

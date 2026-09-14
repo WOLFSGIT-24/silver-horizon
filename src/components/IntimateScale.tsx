@@ -51,8 +51,8 @@ export default function IntimateScale({ onRequestDownload, onOpenEnquiry }: Inti
           
           {/* Left Large Headline */}
           <div className="lg:col-span-6">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-[#161A22] leading-[1.15]">
-              A new benchmark in elevated living
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-[#161A22] leading-[1.15] capitalize">
+              A New Benchmark In Elevated Living
             </h2>
           </div>
 

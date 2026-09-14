@@ -119,8 +119,8 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
           {!formSubmitted ? (
             <>
               <div className="mb-4 space-y-1.5">
-                <h3 className="text-2xl font-normal text-[#161A22] leading-tight tracking-tight">
-                  Schedule your private tour
+                <h3 className="text-2xl font-normal text-[#161A22] leading-tight tracking-tight capitalize">
+                  Schedule Your Private Tour
                 </h3>
                 <p className="text-xs text-gray-500 leading-relaxed font-normal">
                   Experience the 32 storey landmark, Mediterranean architectural finesse, and 14,962 sq.ft. Pavilion Clubhouse in person.

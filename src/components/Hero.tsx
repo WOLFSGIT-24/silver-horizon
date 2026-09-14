@@ -18,7 +18,7 @@ export default function Hero({ onOpenEnquiry, onRequestDownload }: HeroProps) {
           <img
             src="/assets/silver_horizon/banner.webp"
             alt="Silver Horizon Mediterranean Architectural Landmark"
-            className="w-full h-full object-cover object-bottom sm:object-[center_top]"
+            className="w-full h-full object-cover object-[center_top] sm:object-[center_top]"
             fetchPriority="high"
             loading="eager"
             decoding="async"
@@ -37,16 +37,16 @@ export default function Hero({ onOpenEnquiry, onRequestDownload }: HeroProps) {
       {/* Upper Empty Spacer for Fixed Header */}
       <div className="h-28 sm:h-36 w-full relative z-10" />
 
-      {/* Main Content: Centered on Mobile, Right-Aligned on Desktop */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 relative z-10 flex justify-center md:justify-end my-auto pt-2 pb-16 sm:pb-32">
-        <div className="max-w-xl lg:max-w-2xl text-center md:text-right flex flex-col items-center md:items-end space-y-4 sm:space-y-6">
+      {/* Main Content: Hidden on Mobile, Right-Aligned on Desktop */}
+      <div className="hidden md:flex w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 relative z-10 justify-end my-auto pt-2 pb-16 sm:pb-32">
+        <div className="max-w-xl lg:max-w-2xl text-right flex flex-col items-end space-y-4 sm:space-y-6">
           
           {/* Large Headline */}
           <h1 
-            className="font-sans text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white leading-[1.15] drop-shadow-md"
+            className="font-display text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white leading-[1.15] drop-shadow-md capitalize"
           >
-            Discover your ideal <br className="hidden sm:inline" />
-            elevated home today
+            Discover Your Ideal <br className="hidden sm:inline" />
+            Elevated Home Today
           </h1>
 
           {/* Subtitle Description */}

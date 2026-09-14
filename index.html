@@ -11,11 +11,11 @@
     <link rel="preload" href="/assets/silver_horizon/banner_mobile.webp" as="image" type="image/webp" media="(max-width: 640px)" fetchpriority="high" />
     <link rel="preload" href="/assets/silver_horizon/banner.webp" as="image" type="image/webp" media="(min-width: 641px)" fetchpriority="high" />
     
-    <!-- Google Fonts: Plus Jakarta Sans (Non-blocking with font-display swap) -->
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans (Non-blocking with font-display swap) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" /></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" /></noscript>
     
     <!-- Material Symbols (Deferred non-blocking) -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" media="print" onload="this.media='all'" />
@@ -56,12 +56,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: bottom;
-      }
-      @media (min-width: 640px) {
-        .prerender-img {
-          object-position: center top;
-        }
+        object-position: center top;
       }
       .prerender-header {
         position: fixed;
@@ -88,12 +83,12 @@
         padding: 0.5rem 1rem 4rem;
         position: relative;
         z-index: 10;
-        display: flex;
-        justify-content: center;
+        display: none;
         box-sizing: border-box;
       }
       @media (min-width: 768px) {
         .prerender-wrapper {
+          display: flex;
           justify-content: flex-end;
           padding: 0.5rem 2rem 8rem;
         }
@@ -112,10 +107,11 @@
         }
       }
       .prerender-h1 {
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
         font-size: 1.875rem;
         line-height: 1.15;
         font-weight: 500;
-        letter-spacing: -0.025em;
+        letter-spacing: -0.015em;
         color: #ffffff;
         margin: 0 0 1rem 0;
         text-shadow: 0 2px 4px rgba(0,0,0,0.3);
@@ -203,9 +199,9 @@
 
           <div class="prerender-wrapper">
             <div class="prerender-content">
-              <h1 class="prerender-h1">
-                Discover your ideal <br />
-                elevated home today
+              <h1 class="prerender-h1" style="text-transform: capitalize;">
+                Discover Your Ideal <br />
+                Elevated Home Today
               </h1>
               <p class="prerender-p">
                 Uncover a world of 3 & 4 BHK Mediterranean inspired residences & sky duplexes. <br />

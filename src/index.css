@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Owners';
+  src: url('/Owners Font/fonnts.com-Owners.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Owners';
+  src: url('/Owners Font/fonnts.com-Owners_Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Owners';
+  src: url('/Owners Font/fonnts.com-Owners_Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Owners';
+  src: url('/Owners Font/fonnts.com-Owners_Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Utile';
+  src: url('/Utile Font/Utile-Regular-GFXTRA.COM-iF66f3bd3b42c35.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Utile';
+  src: url('/Utile Font/Utile-Bold-GFXTRA.COM-iF66f3bd3acea1d.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Silver Horizon Luxury Palette */
+  --color-navy-dark: #090f1d;
+  --color-navy-primary: #0e172a;
+  --color-navy-light: #1b263b;
+  --color-navy-card: #131e33;
+  
+  /* Gold & Champagne Accents */
+  --color-gold: #c5a880;
+  --color-gold-light: #dfcbb3;
+  --color-gold-dark: #a38254;
+  --color-champagne: #ede3d2;
+  --color-bronze: #9c7b52;
+  
+  /* Marble & Alabaster Light Bases */
+  --color-marble: #faf8f5;
+  --color-marble-light: #ffffff;
+  --color-brand-stone-beige: #e5ded3;
+  
+  /* High contrast reading colors */
+  --color-charcoal: #151922;
+  --color-gray-text: #4a5260;
+  
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-serif-luxury: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  
+  --animate-fade-in: fade-in 0.8s ease-out;
+  --animate-slide-up: slide-up 0.8s ease-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: var(--color-marble);
+  color: var(--color-charcoal);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0ebe1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-dark);
+}
+

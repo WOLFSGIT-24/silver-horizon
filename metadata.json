@@ -1,0 +1,6 @@
+{
+  "name": "Symphony Heights",
+  "description": "Exquisite landing page for Symphony Heights boutique luxury residences, featuring interactive floor plans, interactive amenities explore, location hub, and virtual booking/interest portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

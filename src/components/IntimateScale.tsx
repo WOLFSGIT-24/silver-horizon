@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { 
   Building2, 
   Activity, 
@@ -19,7 +19,7 @@ interface IntimateScaleProps {
 
 export default function IntimateScale({ onRequestDownload, onOpenEnquiry }: IntimateScaleProps) {
   // 4 Cards directly using original brochure content & relevant icons
-  const featureCards = [
+  const initialCards = [
     {
       id: "pavilion-clubhouse",
       icon: (
@@ -62,16 +62,70 @@ export default function IntimateScale({ onRequestDownload, onOpenEnquiry }: Inti
     },
   ];
 
-  // Cards slider state
-  const [activeCardIndex, setActiveCardIndex] = useState(0);
+  // Dynamic circular queue so first card is ALWAYS immediately after the last card
+  const [cards, setCards] = useState(initialCards);
+  const [isSliding, setIsSliding] = useState(false);
+  const [isPrevPrep, setIsPrevPrep] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const nextCard = () => {
-    setActiveCardIndex((prev) => (prev + 1) % (featureCards.length - 1));
+    if (isSliding || isPrevPrep) return;
+    setIsSliding(true);
   };
 
   const prevCard = () => {
-    setActiveCardIndex((prev) => (prev === 0 ? featureCards.length - 2 : prev - 1));
+    if (isSliding || isPrevPrep) return;
+    // Move last card to front and jump track offset without animation
+    setCards((prev) => [prev[prev.length - 1], ...prev.slice(0, -1)]);
+    setIsPrevPrep(true);
   };
+
+  // Re-enable smooth slide to 0 on prev click
+  useEffect(() => {
+    if (isPrevPrep) {
+      const raf = requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsPrevPrep(false);
+          setIsSliding(true);
+        });
+      });
+      return () => cancelAnimationFrame(raf);
+    }
+  }, [isPrevPrep]);
+
+  // Smooth auto-scroll every 3.8s
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      if (!isSliding && !isPrevPrep) {
+        setIsSliding(true);
+      }
+    }, 3800);
+    return () => clearInterval(interval);
+  }, [isPaused, isSliding, isPrevPrep]);
+
+  const handleTransitionEnd = () => {
+    if (isSliding) {
+      if (!isPrevPrep) {
+        // Shift first card to end so the ring continues infinitely
+        setCards((prev) => [...prev.slice(1), prev[0]]);
+      }
+      setIsSliding(false);
+    }
+  };
+
+  // Display array has duplicate so incoming cards are always rendered
+  const visibleCards = [...cards, ...cards];
 
   // Bottom Auto-Scrolling Images
   const autoScrollImages = [
@@ -132,8 +186,12 @@ export default function IntimateScale({ onRequestDownload, onOpenEnquiry }: Inti
 
         </div>
 
-        {/* Middle Feature Cards Slider with Navigation Controls positioned directly over the cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16 sm:mb-20">
+        {/* Middle Feature Cards Infinite Slider */}
+        <div 
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16 sm:mb-20"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           
           {/* Empty left column offset to align with headline */}
           <div className="hidden lg:block lg:col-span-4" />
@@ -141,7 +199,7 @@ export default function IntimateScale({ onRequestDownload, onOpenEnquiry }: Inti
           {/* Right Cards Slider Container */}
           <div className="lg:col-span-8 space-y-6">
             
-            {/* Slider Navigation Arrows positioned right over the cards */}
+            {/* Slider Navigation Arrows */}
             <div className="flex justify-end items-center gap-2 pb-1">
               <button
                 onClick={prevCard}
@@ -159,17 +217,27 @@ export default function IntimateScale({ onRequestDownload, onOpenEnquiry }: Inti
               </button>
             </div>
 
-            {/* Sliding Cards Track */}
+            {/* Sliding Cards Track with Infinite Circular Ring */}
             <div className="overflow-hidden">
               <div
-                className="flex transition-transform duration-500 ease-out gap-6"
+                className="flex gap-6 select-none py-1"
                 style={{
-                  transform: `translateX(-${activeCardIndex * (typeof window !== "undefined" && window.innerWidth < 640 ? 100 : 50)}%)`,
+                  transform: isPrevPrep
+                    ? isMobile
+                      ? "translateX(calc(-100% - 24px))"
+                      : "translateX(calc(-50% - 12px))"
+                    : isSliding
+                    ? isMobile
+                      ? "translateX(calc(-100% - 24px))"
+                      : "translateX(calc(-50% - 12px))"
+                    : "translateX(0px)",
+                  transition: isPrevPrep ? "none" : isSliding ? "transform 500ms cubic-bezier(0.25, 1, 0.5, 1)" : "none",
                 }}
+                onTransitionEnd={handleTransitionEnd}
               >
-                {featureCards.map((card) => (
+                {visibleCards.map((card, idx) => (
                   <div
-                    key={card.id}
+                    key={`${card.id}-${idx}`}
                     className="w-full sm:w-[calc(50%-12px)] shrink-0 space-y-3"
                   >
                     {card.icon}

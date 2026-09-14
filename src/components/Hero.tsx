@@ -13,65 +13,54 @@ export default function Hero({ onOpenEnquiry, onRequestDownload }: HeroProps) {
       id="overview"
       className="relative w-full min-h-[92vh] sm:min-h-screen flex flex-col justify-between items-center text-center overflow-hidden bg-[#8bb4dd]"
     >
-      {/* Background Photography with slow zoom entrance animation */}
+      {/* Background Photography - Instant High-Priority LCP Render */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <img
-          src="/assets/silver_horizon/banner.webp"
-          alt="Silver Horizon Mediterranean Architectural Landmark"
-          className="w-full h-full object-cover object-bottom sm:object-center transform scale-105 animate-[heroScale_2.2s_cubic-bezier(0.16,1,0.3,1)_forwards]"
-          fetchPriority="high"
-          loading="eager"
-          decoding="async"
-        />
+        <picture>
+          <source media="(max-width: 640px)" srcSet="/assets/silver_horizon/banner_mobile.webp" type="image/webp" />
+          <img
+            src="/assets/silver_horizon/banner.webp"
+            alt="Silver Horizon Mediterranean Architectural Landmark"
+            className="w-full h-full object-cover object-bottom sm:object-center"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            width="1326"
+            height="900"
+          />
+        </picture>
 
-        {/* Soft subtle sky gradient overlay to ensure perfect contrast for text */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1b4b82]/45 via-transparent to-transparent pointer-events-none animate-[fadeIn_1.2s_ease-out_forwards]" />
+        {/* Soft subtle sky gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1b4b82]/45 via-transparent to-transparent pointer-events-none" />
 
         {/* Bottom soft misty fog transition into next section */}
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#FAF8F5] via-[#FAF8F5]/80 to-transparent pointer-events-none" />
       </div>
 
-      {/* Animation Styles */}
-      <style>{`
-        @keyframes heroScale {
-          0% { transform: scale(1.12); opacity: 0.7; }
-          100% { transform: scale(1.0); opacity: 1; }
-        }
-        @keyframes heroFadeUp {
-          0% { opacity: 0; transform: translateY(32px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeIn {
-          0% { opacity: 0; }
-          100% { opacity: 1; }
-        }
-      `}</style>
-
       {/* Upper Empty Spacer for Fixed Header */}
       <div className="h-28 sm:h-36 w-full relative z-10" />
 
-      {/* Main Centered Content positioned in the upper open sky area with staggered entrance */}
+      {/* Main Centered Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 space-y-4 sm:space-y-6 flex flex-col items-center justify-center my-auto pt-2 pb-16 sm:pb-32">
         
-        {/* Large Central Headline with Entrance Animation */}
+        {/* Large Central Headline */}
         <h1 
-          className="font-sans text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white leading-[1.15] drop-shadow-md opacity-0 animate-[heroFadeUp_1s_cubic-bezier(0.16,1,0.3,1)_0.2s_forwards]"
+          className="font-sans text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white leading-[1.15] drop-shadow-md"
         >
           Discover your ideal <br className="hidden sm:inline" />
           elevated home today
         </h1>
 
-        {/* Subtitle Description with Staggered Entrance */}
+        {/* Subtitle Description */}
         <p 
-          className="font-body text-xs sm:text-base md:text-lg text-white/95 max-w-2xl leading-relaxed drop-shadow opacity-0 animate-[heroFadeUp_1s_cubic-bezier(0.16,1,0.3,1)_0.4s_forwards]"
+          className="font-body text-xs sm:text-base md:text-lg text-white/95 max-w-2xl leading-relaxed drop-shadow"
         >
           Uncover a world of 3 & 4 BHK Mediterranean inspired residences & sky duplexes. <br className="hidden md:inline" />
           Your perfect sanctuary at Silver Horizon awaits just a search away!
         </p>
 
-        {/* Centered Sleek Dark Pill Button with Entrance Animation & Micro-interactions */}
+        {/* Centered Sleek Dark Pill Button */}
         <div 
-          className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto opacity-0 animate-[heroFadeUp_1s_cubic-bezier(0.16,1,0.3,1)_0.6s_forwards]"
+          className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto"
         >
           <button
             onClick={onOpenEnquiry}
@@ -89,9 +78,9 @@ export default function Hero({ onOpenEnquiry, onRequestDownload }: HeroProps) {
           </button>
         </div>
 
-        {/* Quick Highlights Badge with Subtle Staggered Entrance */}
+        {/* Quick Highlights Badge */}
         <div 
-          className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 pt-2 text-[10px] sm:text-xs font-semibold text-white/90 drop-shadow opacity-0 animate-[heroFadeUp_1s_cubic-bezier(0.16,1,0.3,1)_0.8s_forwards]"
+          className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 pt-2 text-[10px] sm:text-xs font-semibold text-white/90 drop-shadow"
         >
           <span>32 Storeys</span>
           <span>•</span>

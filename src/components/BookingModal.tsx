@@ -85,17 +85,17 @@ export default function BookingModal({
 
   return (
     <div className="fixed inset-0 bg-[#090F1D]/85 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden relative border border-[#E5DED3]">
+      <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden relative border border-[#E5DED3] max-h-[92vh] flex flex-col">
         <div className="absolute top-0 left-0 w-full h-[5px] bg-gradient-to-r from-[#C5A880] to-[#A88758]" />
         
         {/* Header bar */}
-        <div className="bg-[#0E172A] p-6 text-white flex justify-between items-center">
+        <div className="bg-[#0E172A] p-5 sm:p-6 text-white flex justify-between items-center shrink-0">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-white/10 rounded-lg">
               <Calendar className="h-5 w-5 text-[#C5A880]" />
             </div>
             <div>
-              <h3 className="font-display text-lg font-bold tracking-tight">
+              <h3 className="font-display text-base sm:text-lg font-bold tracking-tight">
                 Unlock Silver Horizon Layouts
               </h3>
               <p className="text-[10px] text-[#EFE4D2] uppercase tracking-widest font-bold">
@@ -112,9 +112,9 @@ export default function BookingModal({
         </div>
 
         {/* Content/Form Area */}
-        <div className="p-6 sm:p-8">
+        <div className="p-5 sm:p-8 overflow-y-auto">
           {!submitted ? (
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
               {/* Full Name */}
               <div className="relative border-b border-gray-200 focus-within:border-[#0E172A] py-1">
                 <label className="text-[9px] font-extrabold text-[#0E172A] uppercase tracking-wider block mb-1">

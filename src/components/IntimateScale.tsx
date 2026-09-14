@@ -76,35 +76,35 @@ export default function IntimateScale({ onRequestDownload, onOpenEnquiry }: Inti
   // Bottom Auto-Scrolling Images
   const autoScrollImages = [
     {
-      src: "/assets/silver_horizon/hero_modern_sky.jpg",
+      src: "/assets/silver_horizon/hero_modern_sky.webp",
       alt: "Mediterranean Architectural Landmark",
     },
     {
-      src: "/assets/silver_horizon/grand_lobby.jpg",
+      src: "/assets/silver_horizon/grand_lobby.webp",
       alt: "Grand Arrival Lobby",
     },
     {
-      src: "/assets/silver_horizon/living_room_skyline.jpg",
+      src: "/assets/silver_horizon/living_room_skyline.webp",
       alt: "10-Foot Ceiling Living Room",
     },
     {
-      src: "/assets/silver_horizon/balcony_sunset_panorama.jpg",
+      src: "/assets/silver_horizon/balcony_sunset_panorama.webp",
       alt: "Sunset Sky Balcony",
     },
     {
-      src: "/assets/silver_horizon/duplex_staircase.jpg",
+      src: "/assets/silver_horizon/duplex_staircase.webp",
       alt: "32nd Floor Duplex Spiral Staircase",
     },
     {
-      src: "/assets/silver_horizon/indoor_pool.jpg",
+      src: "/assets/silver_horizon/indoor_pool.webp",
       alt: "Indoor Temperature-Controlled Pool",
     },
     {
-      src: "/assets/silver_horizon/pavilion_amphitheatre.jpg",
+      src: "/assets/silver_horizon/pavilion_amphitheatre.webp",
       alt: "The Pavilion Outdoor Amphitheatre",
     },
     {
-      src: "/assets/silver_horizon/pet_park.jpg",
+      src: "/assets/silver_horizon/pet_park.webp",
       alt: "Dedicated Pet Park",
     },
   ];

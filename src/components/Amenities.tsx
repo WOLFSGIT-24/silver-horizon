@@ -9,49 +9,49 @@ export default function Amenities({ onOpenBooking, onRequestDownload }: Amenitie
   // Curated slider items covering all key amenities across the project
   const sliderItems = [
     {
-      src: "/assets/silver_horizon/indoor_pool.jpg",
+      src: "/assets/silver_horizon/indoor_pool.webp",
       title: "The Pavilion Clubhouse",
       subtitle: "Indoor Temperature-Controlled Heated Pool & Sun Deck",
       category: "14,962 SQFT OF LUXURY",
     },
     {
-      src: "/assets/silver_horizon/pavilion_amphitheatre.jpg",
+      src: "/assets/silver_horizon/pavilion_amphitheatre.webp",
       title: "Nature & Community",
       subtitle: "Open-Air Amphitheatre with Giant Outdoor LED Screen",
       category: "SERENITY & CONNECTION",
     },
     {
-      src: "/assets/silver_horizon/grand_lobby.jpg",
+      src: "/assets/silver_horizon/grand_lobby.webp",
       title: "Grand Arrival Lobby",
       subtitle: "Triple-Height Welcoming Lounge with Mediterranean Aesthetics",
       category: "UNDERSTATED LUXURY",
     },
     {
-      src: "/assets/silver_horizon/sport_basketball.jpg",
+      src: "/assets/silver_horizon/sport_basketball.webp",
       title: "Active Living Arena",
       subtitle: "Full-Sized Multipurpose Basketball & Pickleball Court",
       category: "HEALTH & MOVEMENT",
     },
     {
-      src: "/assets/silver_horizon/pet_park.jpg",
+      src: "/assets/silver_horizon/pet_park.webp",
       title: "Dedicated Pet Park",
       subtitle: "Where Every Paw Finds Its Place Amidst 76% Open Greenery",
       category: "SERENITY & CONNECTION",
     },
     {
-      src: "/assets/silver_horizon/coworking_space.jpg",
+      src: "/assets/silver_horizon/coworking_space.webp",
       title: "Co-Working & Business Lounge",
       subtitle: "Quiet Meeting Pods, High-Speed Connectivity & Private Workstations",
       category: "14,962 SQFT SOCIAL HOUSE",
     },
     {
-      src: "/assets/silver_horizon/indoor_gym.jpg",
+      src: "/assets/silver_horizon/indoor_gym.webp",
       title: "Strength & Cardio Gymnasium",
       subtitle: "State-of-the-Art Fitness Equipment with Open Landscape Views",
       category: "HEALTH & WELLNESS",
     },
     {
-      src: "/assets/silver_horizon/ev_charging.jpg",
+      src: "/assets/silver_horizon/ev_charging.webp",
       title: "Smart Living & Future Ready",
       subtitle: "EV Charging for Every Parking Space & Biometric Access",
       category: "SUSTAINABILITY",

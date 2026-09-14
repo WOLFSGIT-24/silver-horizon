@@ -95,17 +95,17 @@ export default function DownloadModal({
 
   return (
     <div className="fixed inset-0 bg-[#090F1D]/85 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden relative border border-[#E5DED3]">
+      <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden relative border border-[#E5DED3] max-h-[92vh] flex flex-col">
         <div className="absolute top-0 left-0 w-full h-[5px] bg-gradient-to-r from-[#C5A880] to-[#A88758]" />
         
         {/* Header bar */}
-        <div className="bg-[#0E172A] p-6 text-white flex justify-between items-center">
+        <div className="bg-[#0E172A] p-5 sm:p-6 text-white flex justify-between items-center shrink-0">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-white/10 rounded-lg">
               <Download className="h-5 w-5 text-[#C5A880]" />
             </div>
             <div>
-              <h3 className="font-display text-lg font-bold tracking-tight">
+              <h3 className="font-display text-base sm:text-lg font-bold tracking-tight">
                 Download Official Brochure
               </h3>
               <p className="text-[10px] text-[#EFE4D2] uppercase tracking-widest font-bold">
@@ -122,7 +122,7 @@ export default function DownloadModal({
         </div>
 
         {/* Content/Form Area */}
-        <div className="p-6 sm:p-8">
+        <div className="p-5 sm:p-8 overflow-y-auto">
           {!submitted ? (
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="text-center mb-4">

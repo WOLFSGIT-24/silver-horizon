@@ -1,52 +1,6 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: 'Owners';
-  src: url('/Owners Font/fonnts.com-Owners.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
 
-@font-face {
-  font-family: 'Owners';
-  src: url('/Owners Font/fonnts.com-Owners_Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Owners';
-  src: url('/Owners Font/fonnts.com-Owners_Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Owners';
-  src: url('/Owners Font/fonnts.com-Owners_Black.otf') format('opentype');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Utile';
-  src: url('/Utile Font/Utile-Regular-GFXTRA.COM-iF66f3bd3b42c35.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Utile';
-  src: url('/Utile Font/Utile-Bold-GFXTRA.COM-iF66f3bd3acea1d.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
 
 @theme {
   /* Silver Horizon Luxury Palette */

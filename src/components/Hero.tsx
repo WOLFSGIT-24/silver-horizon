@@ -16,10 +16,12 @@ export default function Hero({ onOpenEnquiry, onRequestDownload }: HeroProps) {
       {/* Background Photography with slow zoom entrance animation */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
-          src="/assets/silver_horizon/banner.png"
+          src="/assets/silver_horizon/banner.webp"
           alt="Silver Horizon Mediterranean Architectural Landmark"
           className="w-full h-full object-cover object-bottom sm:object-center transform scale-105 animate-[heroScale_2.2s_cubic-bezier(0.16,1,0.3,1)_forwards]"
           fetchPriority="high"
+          loading="eager"
+          decoding="async"
         />
 
         {/* Soft subtle sky gradient overlay to ensure perfect contrast for text */}

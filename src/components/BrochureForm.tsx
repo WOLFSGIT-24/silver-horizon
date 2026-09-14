@@ -103,9 +103,11 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
     <section id="lead-capture-section" className="w-full relative min-h-[500px] md:min-h-[560px] overflow-hidden flex items-center py-8 md:py-12">
       {/* Full-bleed Background Image */}
       <img
-        src="/assets/silver_horizon/tower_day_view.jpg"
+        src="/assets/silver_horizon/tower_day_view.webp"
         alt="Silver Horizon Luxury Architecture"
         className="absolute inset-0 w-full h-full object-cover object-center"
+        loading="lazy"
+        decoding="async"
       />
       {/* Subtle overlay for optimal contrast */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent pointer-events-none" />

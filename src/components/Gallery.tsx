@@ -3,57 +3,57 @@ import { ZoomIn, X } from "lucide-react";
 
 const galleryImages = [
   {
-    src: "/assets/silver_horizon/balcony_sunset_panorama.jpg",
+    src: "/assets/silver_horizon/balcony_sunset_panorama.webp",
     title: "Sunset Sky Balcony",
     category: "Skyline Living",
   },
   {
-    src: "/assets/silver_horizon/grand_lobby.jpg",
+    src: "/assets/silver_horizon/grand_lobby.webp",
     title: "The Grand Arrival Lobby",
     category: "Arrival Experience",
   },
   {
-    src: "/assets/silver_horizon/living_room_skyline.jpg",
+    src: "/assets/silver_horizon/living_room_skyline.webp",
     title: "10-Ft High Living Room",
     category: "Residences",
   },
   {
-    src: "/assets/silver_horizon/duplex_staircase.jpg",
+    src: "/assets/silver_horizon/duplex_staircase.webp",
     title: "Duplex Spiral Staircase",
     category: "32nd Floor Duplex",
   },
   {
-    src: "/assets/silver_horizon/master_bedroom.jpg",
+    src: "/assets/silver_horizon/master_bedroom.webp",
     title: "Crafted Master Bedroom",
     category: "Interiors",
   },
   {
-    src: "/assets/silver_horizon/pavilion_amphitheatre.jpg",
+    src: "/assets/silver_horizon/pavilion_amphitheatre.webp",
     title: "Open Air Pavilion Amphitheatre",
     category: "Community",
   },
   {
-    src: "/assets/silver_horizon/indoor_pool.jpg",
+    src: "/assets/silver_horizon/indoor_pool.webp",
     title: "Indoor Heated Pool with Deck",
     category: "Clubhouse",
   },
   {
-    src: "/assets/silver_horizon/wellness_pool.jpg",
+    src: "/assets/silver_horizon/wellness_pool.webp",
     title: "Wellness Pool & Sunken Loungers",
     category: "Wellness",
   },
   {
-    src: "/assets/silver_horizon/pet_park.jpg",
+    src: "/assets/silver_horizon/pet_park.webp",
     title: "Dedicated Pet Park",
     category: "Outdoor Spaces",
   },
   {
-    src: "/assets/silver_horizon/kids_play_area.jpg",
+    src: "/assets/silver_horizon/kids_play_area.webp",
     title: "Children's Adventure Play Area",
     category: "Kids Zone",
   },
   {
-    src: "/assets/silver_horizon/night_tower_landmark.jpg",
+    src: "/assets/silver_horizon/night_tower_landmark.webp",
     title: "Night Architectural Illumination",
     category: "Landmark Elevation",
   },

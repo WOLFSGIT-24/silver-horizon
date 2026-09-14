@@ -23,7 +23,7 @@ export default function FloorPlans({
   const residenceCards = [
     {
       unitData: floorPlansData[0], // Unit 01
-      image: "/assets/silver_horizon/unit_plan_01.png",
+      image: "/assets/silver_horizon/unit_plan_01.webp",
       tag: "3 Bedrooms / 3 Bath",
       name: "Unit 01 Residence",
       location: "West Facing • 10-Ft Ceilings",
@@ -31,7 +31,7 @@ export default function FloorPlans({
     },
     {
       unitData: floorPlansData[1], // Unit 02
-      image: "/assets/silver_horizon/unit_plan_02.png",
+      image: "/assets/silver_horizon/unit_plan_02.webp",
       tag: "3 Bedrooms / 3 Bath",
       name: "Unit 02 Residence",
       location: "North Facing • Daylight Deck",
@@ -39,7 +39,7 @@ export default function FloorPlans({
     },
     {
       unitData: floorPlansData[2], // Unit 03
-      image: "/assets/silver_horizon/unit_plan_03.png",
+      image: "/assets/silver_horizon/unit_plan_03.webp",
       tag: "3 Bedrooms / 3 Bath",
       name: "Unit 03 Grand",
       location: "North Facing • Lalbagh View",
@@ -47,7 +47,7 @@ export default function FloorPlans({
     },
     {
       unitData: floorPlansData[3], // Unit 04
-      image: "/assets/silver_horizon/unit_plan_04.png",
+      image: "/assets/silver_horizon/unit_plan_04.webp",
       tag: "3 Bedrooms / 3 Bath",
       name: "Unit 04 Corner",
       location: "North Facing • Triple Airflow",
@@ -55,7 +55,7 @@ export default function FloorPlans({
     },
     {
       unitData: floorPlansData[4], // Unit 05
-      image: "/assets/silver_horizon/unit_plan_05.png",
+      image: "/assets/silver_horizon/unit_plan_05.webp",
       tag: "3 Bedrooms / 3 Bath",
       name: "Unit 05 East",
       location: "East Facing • Morning Sun",
@@ -63,7 +63,7 @@ export default function FloorPlans({
     },
     {
       unitData: floorPlansData[5] || floorPlansData[0], // Unit 06
-      image: "/assets/silver_horizon/unit_plan_06.png",
+      image: "/assets/silver_horizon/unit_plan_06.webp",
       tag: "3 Bedrooms / 3 Bath",
       name: "Unit 06 East",
       location: "East Facing • Buffer Separation",
@@ -71,7 +71,7 @@ export default function FloorPlans({
     },
     {
       unitData: floorPlansData[6] || floorPlansData[0], // Unit 07
-      image: "/assets/silver_horizon/unit_plan_07.png",
+      image: "/assets/silver_horizon/unit_plan_07.webp",
       tag: "3 Bedrooms / 3 Bath",
       name: "Unit 07 East",
       location: "East Facing • Vastu Compliant",
@@ -79,7 +79,7 @@ export default function FloorPlans({
     },
     {
       unitData: floorPlansData[7] || floorPlansData[0], // Typical Floor Plate
-      image: "/assets/silver_horizon/typical_floor_plate.png",
+      image: "/assets/silver_horizon/typical_floor_plate.webp",
       tag: "7 Units / Floor Plate",
       name: "Typical Tower Plate",
       location: "G + 32 Storeys • 4 High-Speed Lifts",

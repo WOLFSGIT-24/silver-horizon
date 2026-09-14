@@ -100,21 +100,21 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
   };
 
   return (
-    <section id="lead-capture-section" className="w-full relative min-h-[500px] md:min-h-[560px] overflow-hidden flex items-center py-8 md:py-12">
-      {/* Full-bleed Background Image */}
+    <section id="lead-capture-section" className="w-full relative min-h-[540px] md:min-h-[600px] overflow-hidden flex items-center py-10 md:py-16">
+      {/* Full-bleed Background Image with tower clearly visible on the left */}
       <img
         src="/assets/silver_horizon/tower_day_view.webp"
         alt="Silver Horizon Luxury Architecture"
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        className="absolute inset-0 w-full h-full object-cover object-[20%_center] sm:object-[25%_center] lg:object-[35%_center]"
         loading="lazy"
         decoding="async"
       />
-      {/* Subtle overlay for optimal contrast */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent pointer-events-none" />
+      {/* Subtle right gradient overlay for card readability */}
+      <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-l from-black/60 via-black/20 to-transparent pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full relative z-10 flex justify-center lg:justify-end">
         {/* Floating White Card */}
-        <div className="mx-auto lg:mx-0 w-full max-w-[450px] bg-white rounded-2xl sm:rounded-[24px] p-5 sm:p-7 shadow-2xl border border-white/60">
+        <div className="w-full max-w-[450px] bg-white rounded-2xl sm:rounded-[24px] p-5 sm:p-7 shadow-2xl border border-white/60">
           
           {!formSubmitted ? (
             <>

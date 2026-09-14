@@ -1,5 +1,4 @@
 import React from "react";
-import { projectSnapshot } from "../data";
 
 interface HeroProps {
   onOpenEnquiry: () => void;

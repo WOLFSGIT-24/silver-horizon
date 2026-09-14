@@ -2,7 +2,6 @@ import React, { useState, useEffect, Suspense, lazy } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import { LeadSubmission } from "./types";
-import { projectSnapshot } from "./data";
 
 // Lazy-load below-the-fold components to maximize mobile FCP / LCP performance
 const IntimateScale = lazy(() => import("./components/IntimateScale"));

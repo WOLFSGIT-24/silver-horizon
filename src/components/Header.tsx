@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { projectSnapshot } from "../data";
 
 interface HeaderProps {
   onOpenBooking: () => void;

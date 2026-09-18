@@ -102,13 +102,6 @@ export default function Header({ onOpenBooking, onRequestDownload }: HeaderProps
               {pagesDropdownOpen && (
                 <div className="absolute top-full left-0 mt-2 w-48 bg-[#0E172A] rounded-xl shadow-2xl border border-white/10 py-2 animate-fade-in z-50">
                   <a
-                    href="#specifications"
-                    onClick={(e) => handleLinkClick(e, "specifications")}
-                    className="block px-4 py-2 text-xs font-body text-white/80 hover:bg-white/10 hover:text-white"
-                  >
-                    Specifications
-                  </a>
-                  <a
                     href="#gallery"
                     onClick={(e) => handleLinkClick(e, "gallery")}
                     className="block px-4 py-2 text-xs font-body text-white/80 hover:bg-white/10 hover:text-white"
@@ -172,13 +165,6 @@ export default function Header({ onOpenBooking, onRequestDownload }: HeaderProps
               {link.label}
             </a>
           ))}
-          <a
-            href="#specifications"
-            onClick={(e) => handleLinkClick(e, "specifications")}
-            className="font-body text-base font-medium text-white/90 hover:text-[#C5A880] tracking-wide py-2.5 border-b border-white/5"
-          >
-            Specifications
-          </a>
 
           <div className="pt-4 space-y-3">
             <button

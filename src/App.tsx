@@ -9,7 +9,6 @@ const ProjectHighlights = lazy(() => import("./components/ProjectHighlights"));
 const Amenities = lazy(() => import("./components/Amenities"));
 const MasterPlan = lazy(() => import("./components/MasterPlan"));
 const FloorPlans = lazy(() => import("./components/FloorPlans"));
-const Specifications = lazy(() => import("./components/Specifications"));
 const Location = lazy(() => import("./components/Location"));
 const BrochureForm = lazy(() => import("./components/BrochureForm"));
 const Footer = lazy(() => import("./components/Footer"));
@@ -199,9 +198,6 @@ export default function App() {
           onOpenBooking={handleHeroEnquiry} 
           onRequestDownload={handleRequestDownload}
         />
-
-        {/* Comprehensive Premium & Room Specifications */}
-        <Specifications />
 
         {/* Interactive Floor Drafting Plans (Units 01-07, 4 BHK Duplex) */}
         <FloorPlans 

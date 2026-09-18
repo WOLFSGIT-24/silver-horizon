@@ -6,39 +6,27 @@ interface IntimateScaleProps {
 }
 
 export default function IntimateScale({ onRequestDownload, onOpenEnquiry }: IntimateScaleProps) {
-  // Bottom Auto-Scrolling Images
+  // Bottom Auto-Scrolling Building Images
   const autoScrollImages = [
     {
-      src: "/assets/silver_horizon/hero_modern_sky.webp",
-      alt: "Mediterranean Architectural Landmark",
+      src: "/assets/silver_horizon/building_slide_01.webp",
+      alt: "Silver Horizon Architectural Grandeur View 1",
     },
     {
-      src: "/assets/silver_horizon/grand_lobby.webp",
-      alt: "Grand Arrival Lobby",
+      src: "/assets/silver_horizon/building_slide_02.webp",
+      alt: "Silver Horizon Mediterranean Facade View 2",
     },
     {
-      src: "/assets/silver_horizon/living_room_skyline.webp",
-      alt: "10 Foot Ceiling Living Room",
+      src: "/assets/silver_horizon/building_slide_03.webp",
+      alt: "Silver Horizon Elevated Landmark View 3",
     },
     {
-      src: "/assets/silver_horizon/balcony_sunset_panorama.webp",
-      alt: "Sunset Sky Balcony",
+      src: "/assets/silver_horizon/building_slide_04.webp",
+      alt: "Silver Horizon Residential Skyline View 4",
     },
     {
-      src: "/assets/silver_horizon/duplex_staircase.webp",
-      alt: "32nd Floor Duplex Spiral Staircase",
-    },
-    {
-      src: "/assets/silver_horizon/indoor_pool.webp",
-      alt: "Indoor Temperature Controlled Pool",
-    },
-    {
-      src: "/assets/silver_horizon/pavilion_amphitheatre.webp",
-      alt: "The Pavilion Outdoor Amphitheatre",
-    },
-    {
-      src: "/assets/silver_horizon/pet_park.webp",
-      alt: "Dedicated Pet Park",
+      src: "/assets/silver_horizon/building_slide_05.webp",
+      alt: "Silver Horizon Tower Perspective View 5",
     },
   ];
 

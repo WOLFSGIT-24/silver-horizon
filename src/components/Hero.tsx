@@ -30,16 +30,15 @@ export default function Hero({ onOpenEnquiry, onRequestDownload }: HeroProps) {
         {/* Soft subtle sky gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#1b4b82]/45 via-transparent to-transparent pointer-events-none" />
 
-        {/* Bottom soft misty fog transition into next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#FAF8F5] via-[#FAF8F5]/80 to-transparent pointer-events-none" />
+
       </div>
 
       {/* Upper Empty Spacer for Fixed Header */}
       <div className="h-28 sm:h-36 w-full relative z-10" />
 
-      {/* Main Content: Hidden on Mobile, Right-Aligned on Desktop */}
-      <div className="hidden md:flex w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 relative z-10 justify-end my-auto pt-2 pb-16 sm:pb-32">
-        <div className="max-w-xl lg:max-w-2xl text-right flex flex-col items-end space-y-4 sm:space-y-6">
+      {/* Main Content: Hidden on Mobile, Left-Aligned on Desktop */}
+      <div className="hidden md:flex w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 relative z-10 justify-start my-auto pt-2 pb-16 sm:pb-32">
+        <div className="max-w-xl lg:max-w-2xl text-left flex flex-col items-start space-y-4 sm:space-y-6">
           
           {/* Large Headline */}
           <h1 
@@ -49,17 +48,16 @@ export default function Hero({ onOpenEnquiry, onRequestDownload }: HeroProps) {
             Elevated Home Today
           </h1>
 
-          {/* Subtitle Description */}
-          <p 
-            className="font-body text-xs sm:text-base md:text-lg text-white/95 max-w-xl leading-relaxed drop-shadow"
-          >
-            Uncover a world of 3 & 4 BHK Mediterranean inspired residences & sky duplexes. <br className="hidden md:inline" />
-            Your perfect sanctuary at Silver Horizon awaits just a search away!
-          </p>
+          {/* Location, Specification, Price (One Line Each, without label names) */}
+          <div className="space-y-1 sm:space-y-1.5 text-white/95 font-body text-sm sm:text-base md:text-lg drop-shadow">
+            <p>East Bengaluru (Adjoining PRR)</p>
+            <p>3 & 4 BHK Luxury Residences & Sky Duplexes</p>
+            <p>Price On Request</p>
+          </div>
 
           {/* Action Buttons */}
           <div 
-            className="pt-2 flex flex-col sm:flex-row items-center justify-center md:justify-end gap-3 w-full sm:w-auto"
+            className="pt-2 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 w-full sm:w-auto"
           >
             <button
               onClick={onOpenEnquiry}
@@ -78,18 +76,6 @@ export default function Hero({ onOpenEnquiry, onRequestDownload }: HeroProps) {
               <span>Brochure</span>
             </button>
           </div>
-
-          {/* Quick Highlights Badge */}
-          <div 
-            className="flex flex-wrap items-center justify-center md:justify-end gap-2 sm:gap-4 pt-2 text-[10px] sm:text-xs font-semibold text-white/90 drop-shadow"
-          >
-            <span>32 Storeys</span>
-            <span>•</span>
-            <span>14,962 Sq.Ft Clubhouse</span>
-            <span className="hidden xs:inline">•</span>
-            <span>East Bengaluru (Adjoining PRR)</span>
-          </div>
-
         </div>
       </div>
 

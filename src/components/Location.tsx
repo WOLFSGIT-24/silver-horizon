@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { locationsData, nearbyPointsOfInterest } from "../data";
+import { locationsData } from "../data";
 
 interface LocationProps {
   onOpenEnquiry: () => void;
@@ -61,34 +61,7 @@ export default function Location({ onOpenEnquiry }: LocationProps) {
 
         </div>
 
-        {/* 4 Infrastructure Highlights Grid from Page 25 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {nearbyPointsOfInterest.infrastructure.map((infra, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-2xl overflow-hidden border border-gray-200/80 shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden bg-[#090F1D]">
-                <img
-                  src={infra.img}
-                  alt={infra.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <span className="absolute top-3 right-3 bg-[#0A1120]/85 backdrop-blur-md text-white text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full border border-white/20">
-                  {infra.badge}
-                </span>
-              </div>
-              <div className="p-5 flex-1 flex flex-col justify-between space-y-2">
-                <h4 className="font-medium text-sm sm:text-base text-[#161A22] leading-tight tracking-tight">
-                  {infra.title}
-                </h4>
-                <p className="font-body text-xs text-gray-500 leading-relaxed">
-                  {infra.desc}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+
 
         {/* Two-Column: Commute Matrix & Map */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">

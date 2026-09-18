@@ -6,55 +6,25 @@ interface AmenitiesProps {
 }
 
 export default function Amenities({ onOpenBooking, onRequestDownload }: AmenitiesProps) {
-  // Curated slider items covering all key amenities across the project
+  // Curated slider items from Amanites
   const sliderItems = [
     {
-      src: "/assets/silver_horizon/indoor_pool.webp",
-      title: "The Pavilion Clubhouse",
-      subtitle: "Indoor Temperature Controlled Heated Pool & Sun Deck",
+      src: "/assets/silver_horizon/amenities_slide_03.webp",
+      title: "The Pavilion Clubhouse Pool",
+      subtitle: "Indoor Temperature Controlled Heated Pool & Spa Lounge",
       category: "14,962 SQFT OF LUXURY",
     },
     {
-      src: "/assets/silver_horizon/pavilion_amphitheatre.webp",
-      title: "Nature & Community",
-      subtitle: "Open Air Amphitheatre with Giant Outdoor LED Screen",
-      category: "SERENITY & CONNECTION",
-    },
-    {
-      src: "/assets/silver_horizon/grand_lobby.webp",
-      title: "Grand Arrival Lobby",
-      subtitle: "Triple Height Welcoming Lounge with Mediterranean Aesthetics",
-      category: "UNDERSTATED LUXURY",
-    },
-    {
-      src: "/assets/silver_horizon/sport_basketball.webp",
-      title: "Active Living Arena",
-      subtitle: "Full Sized Multipurpose Basketball & Pickleball Court",
-      category: "HEALTH & MOVEMENT",
-    },
-    {
-      src: "/assets/silver_horizon/pet_park.webp",
-      title: "Dedicated Pet Park",
-      subtitle: "Where Every Paw Finds Its Place Amidst 76% Open Greenery",
-      category: "SERENITY & CONNECTION",
-    },
-    {
-      src: "/assets/silver_horizon/coworking_space.webp",
-      title: "Coworking & Business Lounge",
-      subtitle: "Quiet Meeting Pods, High Speed Connectivity & Private Workstations",
-      category: "14,962 SQFT SOCIAL HOUSE",
-    },
-    {
-      src: "/assets/silver_horizon/indoor_gym.webp",
+      src: "/assets/silver_horizon/amenities_slide_02.webp",
       title: "Strength & Cardio Gymnasium",
-      subtitle: "State of the Art Fitness Equipment with Open Landscape Views",
+      subtitle: "State of the Art Fitness Arena & Training Zone",
       category: "HEALTH & WELLNESS",
     },
     {
-      src: "/assets/silver_horizon/ev_charging.webp",
-      title: "Smart Living & Future Ready",
-      subtitle: "EV Charging for Every Parking Space & Biometric Access",
-      category: "SUSTAINABILITY",
+      src: "/assets/silver_horizon/amenities_slide_01.webp",
+      title: "Open Air Sunken Pool Deck",
+      subtitle: "Scenic Sun Deck with Built-in Water Recliners & Cabanas",
+      category: "SERENITY & RELAXATION",
     },
   ];
 

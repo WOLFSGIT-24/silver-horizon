@@ -231,7 +231,7 @@ export default function App() {
       {/* Fixed Mobile Bottom CTA Bar */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#090F1D] border-t border-[#C5A880]/30 p-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] shadow-[0_-10px_30px_rgba(0,0,0,0.5)] flex items-center gap-2.5">
         <a 
-          href="tel:9880666189" 
+          href="tel:8867589797" 
           className="flex-1 flex items-center justify-center gap-2 bg-[#131E33] hover:bg-[#1B2844] text-white font-body text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl transition-all border border-white/10 active:scale-[0.98]"
         >
           <svg className="h-4 w-4 text-[#C5A880]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -252,7 +252,7 @@ export default function App() {
 
       {/* WhatsApp Floating Button */}
       <a
-        href="https://wa.me/919880666189?text=Hi%2C%20I%20am%20interested%20in%20Silver%20Horizon%20by%20GreenEdge%20Infracon.%20Please%20share%20details."
+        href="https://wa.me/918867589797?text=Hi%2C%20I%20am%20interested%20in%20Silver%20Horizon%20by%20GreenEdge%20Infracon.%20Please%20share%20details."
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-[76px] md:bottom-8 right-4 md:right-8 bg-[#25D366] text-white p-3.5 md:p-4 rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:shadow-[0_8px_30px_rgba(37,211,102,0.6)] hover:scale-110 transition-all z-40 flex items-center justify-center animate-fade-in"

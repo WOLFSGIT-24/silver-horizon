@@ -70,7 +70,6 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
               <li><strong>Developer:</strong> GreenEdge Infracon</li>
               <li><strong>Contact:</strong> {projectSnapshot.phonePrimary} / {projectSnapshot.phoneSecondary}</li>
               <li><strong>Email:</strong> {projectSnapshot.email}</li>
-              <li><strong>RERA:</strong> {projectSnapshot.rera}</li>
             </ul>
           </div>
         </div>

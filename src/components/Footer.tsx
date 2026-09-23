@@ -117,10 +117,7 @@ export default function Footer({ onOpenPrivacy, onOpenTerms }: FooterProps = {})
         {/* Bottom Compliance & Legal Row */}
         <div className="pt-8 sm:pt-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs text-white/50">
           <div>
-            <p>
-              Karnataka RERA: <strong className="text-white/80">{projectSnapshot.rera}</strong>
-            </p>
-            <p className="text-[11px] text-white/40 mt-1 max-w-2xl">
+            <p className="text-[11px] text-white/40 max-w-2xl">
               All plans, images, and dimensions are for conceptual illustration purposes only and subject to regulatory approvals.
             </p>
           </div>

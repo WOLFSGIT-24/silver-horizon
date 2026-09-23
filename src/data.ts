@@ -22,7 +22,6 @@ export const projectSnapshot = {
   phoneRaw: "8867589797",
   email: "hello@velocitirealestate.com",
   website: "www.greenedgeinfracon.com",
-  rera: "PRM/KA/RERA/1251/446/PR/250925/008120",
   storeyCount: "32 Storey Landmark",
   totalFloors: "G + 32 Floors",
   openSpace: "76% Open Space",

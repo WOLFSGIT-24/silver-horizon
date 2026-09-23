@@ -73,7 +73,6 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
               <li><strong>Address:</strong> {projectSnapshot.address}</li>
               <li><strong>Phone:</strong> {projectSnapshot.phonePrimary} | {projectSnapshot.phoneSecondary}</li>
               <li><strong>Email:</strong> {projectSnapshot.email}</li>
-              <li><strong>RERA:</strong> {projectSnapshot.rera}</li>
             </ul>
           </div>
         </div>

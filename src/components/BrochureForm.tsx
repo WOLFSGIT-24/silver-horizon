@@ -78,6 +78,7 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
         preferredTime: formData.preferredTime || undefined,
         source: formData.source,
         notes: `Unit preference: ${formData.unitType}`,
+        unitType: formData.unitType,
       });
 
       setLoading(false);

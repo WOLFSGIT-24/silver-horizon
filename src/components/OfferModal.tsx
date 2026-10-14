@@ -93,6 +93,7 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
       source: "popup_enquiry_modal",
       status: "Pending",
       notes: `Preference: ${formData.unitPreference}`,
+      unitType: formData.unitPreference,
     });
     
     setLoading(false);

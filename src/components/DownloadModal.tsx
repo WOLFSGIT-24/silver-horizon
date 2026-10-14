@@ -80,6 +80,7 @@ export default function DownloadModal({
         phone: formData.phone,
         source: "brochure_download_modal",
         notes: "Requested Silver Horizon brochure download.",
+        unitType: "Brochure Download",
       });
       setLoading(false);
       setSubmitted(true);

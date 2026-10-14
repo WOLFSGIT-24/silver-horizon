@@ -68,8 +68,11 @@ export default function App() {
   };
 
   const handleAddLead = (rawLead: Omit<LeadSubmission, "id" | "submittedAt" | "status">) => {
-    const isoTimestamp = new Date().toISOString();
-    const localTimestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+    const now = new Date();
+    const isoTimestamp = now.toISOString();
+    const localTimestamp = now.toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+    const localDate = now.toLocaleDateString("en-IN", { timeZone: "Asia/Kolkata" });
+    const localTime = now.toLocaleTimeString("en-IN", { timeZone: "Asia/Kolkata" });
     
     const newLead: LeadSubmission = {
       ...rawLead,
@@ -78,24 +81,63 @@ export default function App() {
       status: "Pending",
     };
 
-    // Post to Make.com Webhook if configured
-    fetch("https://hook.us1.make.com/2bmmq21zo8ocu9itedtq5oyhu5sg5zad", {
+    // Extract UTM and tracking parameters for Sheet attribution
+    const utmParams: Record<string, string> = {};
+    try {
+      if (typeof window !== "undefined" && window.location) {
+        const searchParams = new URLSearchParams(window.location.search);
+        ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"].forEach((key) => {
+          const val = searchParams.get(key);
+          if (val) utmParams[key] = val;
+        });
+      }
+    } catch {
+      // ignore
+    }
+
+    // Friendly source label
+    const sourceMap: Record<string, string> = {
+      "brochure_download_modal": "Brochure Download Modal",
+      "popup_enquiry_modal": "Enquiry Popup Modal",
+      "floor_plan_enquiry": "Floor Plan Unlock Modal",
+      "Website Landing Page": "Landing Page Brochure Form",
+    };
+    const friendlySource = sourceMap[newLead.source] || newLead.source || "Website Enquiry";
+
+    // Post to Make.com Webhook with structured payload for Google Sheets integration
+    fetch("https://hook.us1.make.com/9oyi51u0g2lauvvvwpdi3uehsx7toasb", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      keepalive: true,
       body: JSON.stringify({
         project: "Silver Horizon",
         developer: "GreenEdge Infracon",
         id: newLead.id,
+        leadId: newLead.id,
+        name: newLead.fullName,
         fullName: newLead.fullName,
         email: newLead.email,
         phone: newLead.phone,
-        source: newLead.source,
+        phoneNumber: newLead.phone,
+        mobile: newLead.phone,
+        source: friendlySource,
+        formName: friendlySource,
+        formSource: newLead.source,
         notes: newLead.notes || "",
-        submittedAt: isoTimestamp,
+        unitPreference: newLead.unitType || newLead.notes || "",
+        unitType: newLead.unitType || newLead.notes || "",
+        preferredDate: newLead.preferredDate || "",
+        preferredTime: newLead.preferredTime || "",
+        date: localDate,
+        time: localTime,
+        dateTime: localTimestamp,
         localTimestamp: localTimestamp,
+        submittedAt: isoTimestamp,
         status: newLead.status,
+        pageUrl: typeof window !== "undefined" ? window.location.href : "",
+        ...utmParams,
       }),
     }).catch((err) => {
       console.error("Webhook submission failed:", err);

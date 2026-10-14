@@ -77,6 +77,7 @@ export default function BookingModal({
         preferredTime: formData.preferredTime || undefined,
         source: "floor_plan_enquiry",
         notes: `Unlocked Floor Plans for ${formData.unitType}`,
+        unitType: formData.unitType,
       });
       setLoading(false);
       setSubmitted(true);

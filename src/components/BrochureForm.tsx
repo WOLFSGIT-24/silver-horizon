@@ -39,7 +39,7 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
     if (id === "phone") {
       sanitizedValue = value.replace(/\D/g, "").slice(0, 10);
     } else if (id === "fullName") {
-      sanitizedValue = value.replace(/[^A-Za-z\s]/g, "");
+      sanitizedValue = value.replace(/[^A-Za-z\s.'-]/g, "");
     }
     
     setFormData((prev) => ({ ...prev, [id]: sanitizedValue }));
@@ -52,7 +52,7 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
     e.preventDefault();
 
     const newErrors: Record<string, string> = {};
-    if (!/^[A-Za-z\s]+$/.test(formData.fullName.trim())) {
+    if (!/^[A-Za-z\s.'-]+$/.test(formData.fullName.trim())) {
       newErrors.fullName = "Name should only contain letters";
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {

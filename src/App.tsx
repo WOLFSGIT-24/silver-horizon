@@ -104,44 +104,82 @@ export default function App() {
     };
     const friendlySource = sourceMap[newLead.source] || newLead.source || "Website Enquiry";
 
-    // Post to Make.com Webhook with structured payload for Google Sheets integration
-    fetch("https://hook.us1.make.com/9oyi51u0g2lauvvvwpdi3uehsx7toasb", {
+    // Build message text combining unit preference, appointment info and form origin
+    const messageDetails = [
+      newLead.notes,
+      newLead.preferredDate ? `Preferred Date: ${newLead.preferredDate} ${newLead.preferredTime || ""}`.trim() : "",
+      `Source: ${friendlySource}`,
+    ]
+      .filter(Boolean)
+      .join(" | ");
+
+    const payload = {
+      // Exact Google Sheet Headers matching your active spreadsheet
+      "Creation date": localTimestamp,
+      "Item Id": newLead.id,
+      "Name": newLead.fullName,
+      "Phone Number": newLead.phone,
+      "Email": newLead.email,
+      "Message": messageDetails,
+      "Feedback": "",
+      "Current Status": "Pending",
+      "Business Manager": "GreenEdge Infracon",
+
+      // Normalized & standard aliases for Make.com variable mapping
+      project: "Silver Horizon",
+      developer: "GreenEdge Infracon",
+      id: newLead.id,
+      leadId: newLead.id,
+      itemId: newLead.id,
+      creationDate: localTimestamp,
+      name: newLead.fullName,
+      fullName: newLead.fullName,
+      email: newLead.email,
+      phone: newLead.phone,
+      phoneNumber: newLead.phone,
+      mobile: newLead.phone,
+      message: messageDetails,
+      feedback: "",
+      currentStatus: "Pending",
+      businessManager: "GreenEdge Infracon",
+      source: friendlySource,
+      formName: friendlySource,
+      formSource: newLead.source,
+      notes: newLead.notes || "",
+      unitPreference: newLead.unitType || newLead.notes || "",
+      unitType: newLead.unitType || newLead.notes || "",
+      preferredDate: newLead.preferredDate || "",
+      preferredTime: newLead.preferredTime || "",
+      date: localDate,
+      time: localTime,
+      dateTime: localTimestamp,
+      localTimestamp: localTimestamp,
+      submittedAt: isoTimestamp,
+      status: newLead.status,
+      pageUrl: typeof window !== "undefined" ? window.location.href : "",
+      ...utmParams,
+    };
+
+    const webhookBaseUrl =
+      import.meta.env.VITE_MAKE_WEBHOOK_URL ||
+      "https://hook.us1.make.com/9oyi51u0g2lauvvvwpdi3uehsx7toasb";
+
+    // Post clean JSON to Make.com Webhook
+    fetch(webhookBaseUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       keepalive: true,
-      body: JSON.stringify({
-        project: "Silver Horizon",
-        developer: "GreenEdge Infracon",
-        id: newLead.id,
-        leadId: newLead.id,
-        name: newLead.fullName,
-        fullName: newLead.fullName,
-        email: newLead.email,
-        phone: newLead.phone,
-        phoneNumber: newLead.phone,
-        mobile: newLead.phone,
-        source: friendlySource,
-        formName: friendlySource,
-        formSource: newLead.source,
-        notes: newLead.notes || "",
-        unitPreference: newLead.unitType || newLead.notes || "",
-        unitType: newLead.unitType || newLead.notes || "",
-        preferredDate: newLead.preferredDate || "",
-        preferredTime: newLead.preferredTime || "",
-        date: localDate,
-        time: localTime,
-        dateTime: localTimestamp,
-        localTimestamp: localTimestamp,
-        submittedAt: isoTimestamp,
-        status: newLead.status,
-        pageUrl: typeof window !== "undefined" ? window.location.href : "",
-        ...utmParams,
-      }),
-    }).catch((err) => {
-      console.error("Webhook submission failed:", err);
-    });
+      body: JSON.stringify(payload),
+    })
+      .then(async (res) => {
+        const text = await res.text();
+        console.log("Make.com Webhook response:", res.status, text);
+      })
+      .catch((err) => {
+        console.error("Make.com Webhook submission error:", err);
+      });
 
     const updated = [newLead, ...leads];
     saveLeadsToCache(updated);

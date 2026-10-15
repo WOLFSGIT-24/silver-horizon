@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { X, Calendar, Sparkles, Check, Phone, Mail, User, Building } from "lucide-react";
 import { LeadSubmission } from "../types";
+import { sendToWebhook } from "../webhook";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -69,6 +70,12 @@ export default function BookingModal({
     setLoading(true);
 
     setTimeout(() => {
+      sendToWebhook({
+        fullName: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+      });
+
       onAddLead({
         fullName: formData.fullName,
         email: formData.email,

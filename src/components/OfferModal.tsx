@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { X, Check, Sparkles, ShieldCheck } from "lucide-react";
 import { projectSnapshot } from "../data";
+import { sendToWebhook } from "../webhook";
 
 interface OfferModalProps {
   isOpen: boolean;
@@ -86,6 +87,13 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
     
     await new Promise((resolve) => setTimeout(resolve, 900));
     
+    sendToWebhook({
+      fullName: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+      unitPreference: formData.unitPreference,
+    });
+
     onAddLead({
       fullName: formData.fullName,
       email: formData.email,

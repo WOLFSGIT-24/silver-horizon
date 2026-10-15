@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { X, Check, Phone, Mail, User, Download } from "lucide-react";
 import { LeadSubmission } from "../types";
+import { sendToWebhook } from "../webhook";
 
 interface DownloadModalProps {
   isOpen: boolean;
@@ -74,6 +75,12 @@ export default function DownloadModal({
     setLoading(true);
 
     setTimeout(() => {
+      sendToWebhook({
+        fullName: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+      });
+
       onAddLead({
         fullName: formData.fullName,
         email: formData.email,

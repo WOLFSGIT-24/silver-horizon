@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Download, CheckCircle, ArrowRight } from "lucide-react";
 import { LeadSubmission } from "../types";
+import { sendToWebhook } from "../webhook";
 
 interface BrochureFormProps {
   onAddLead: (lead: Omit<LeadSubmission, "id" | "submittedAt" | "status">) => void;
@@ -70,6 +71,13 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
     setLoading(true);
 
     setTimeout(() => {
+      sendToWebhook({
+        fullName: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        unitType: formData.unitType,
+      });
+
       onAddLead({
         fullName: formData.fullName,
         email: formData.email,

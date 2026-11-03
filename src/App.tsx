@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense, lazy } from "react";
+import React, { useState, useEffect, Suspense, lazy, useRef } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import { LeadSubmission } from "./types";
@@ -41,6 +41,23 @@ export default function App() {
       return false;
     }
   });
+
+  const modalInteractedRef = useRef(false);
+
+  // Auto-trigger enquiry popup modal 4 seconds after site load
+  useEffect(() => {
+    // Prefetch OfferModal bundle for instant rendering
+    import("./components/OfferModal");
+
+    const timer = setTimeout(() => {
+      if (!modalInteractedRef.current) {
+        modalInteractedRef.current = true;
+        setOfferOpen(true);
+      }
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // Read initial cache
   useEffect(() => {
@@ -101,6 +118,7 @@ export default function App() {
   };
 
   const handleRequestDownload = () => {
+    modalInteractedRef.current = true;
     setTriggerDownload(true);
     setDownloadModalOpen(true);
   };
@@ -120,11 +138,13 @@ export default function App() {
   };
 
   const handleSelectUnitType = (unitType: string) => {
+    modalInteractedRef.current = true;
     setPreselectedUnit(unitType);
     setOfferOpen(true);
   };
 
   const handleHeroEnquiry = () => {
+    modalInteractedRef.current = true;
     setOfferOpen(true);
   };
 
@@ -133,6 +153,7 @@ export default function App() {
       {/* Upper Navigation Header */}
       <Header
         onOpenBooking={() => {
+          modalInteractedRef.current = true;
           setPreselectedUnit(null);
           setOfferOpen(true);
         }}
@@ -177,7 +198,10 @@ export default function App() {
         <FloorPlans 
           onSelectUnit={handleSelectUnitType} 
           isUnlocked={floorPlansUnlocked}
-          onUnlockRequest={() => setBookingOpen(true)}
+          onUnlockRequest={() => {
+            modalInteractedRef.current = true;
+            setBookingOpen(true);
+          }}
           onOpenBooking={handleHeroEnquiry}
         />
 
@@ -215,6 +239,7 @@ export default function App() {
         </a>
         <button 
           onClick={() => {
+            modalInteractedRef.current = true;
             setPreselectedUnit(null);
             setOfferOpen(true);
           }}
@@ -293,7 +318,10 @@ export default function App() {
         {offerOpen && (
           <OfferModal
             isOpen={offerOpen}
-            onClose={() => setOfferOpen(false)}
+            onClose={() => {
+              modalInteractedRef.current = true;
+              setOfferOpen(false);
+            }}
             onAddLead={handleAddLead}
           />
         )}

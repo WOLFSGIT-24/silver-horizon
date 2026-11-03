@@ -26,10 +26,6 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
   useEffect(() => {
     if (preselectedUnit) {
       setFormData((prev) => ({ ...prev, unitType: preselectedUnit }));
-      const el = document.getElementById("lead-capture-section");
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      }
     }
   }, [preselectedUnit]);
 

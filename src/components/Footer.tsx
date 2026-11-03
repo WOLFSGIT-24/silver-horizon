@@ -59,6 +59,9 @@ export default function Footer({ onOpenPrivacy, onOpenTerms }: FooterProps = {})
             <p className="text-xs text-gray-400">
               Developed by <strong className="text-white font-medium">GreenEdge Infracon</strong>
             </p>
+            <p className="text-xs text-[#C5A880] font-mono tracking-wide pt-0.5">
+              RERA: {projectSnapshot.reraNumber}
+            </p>
           </div>
 
           {/* Col 2: Navigation Links */}
@@ -114,11 +117,33 @@ export default function Footer({ onOpenPrivacy, onOpenTerms }: FooterProps = {})
 
         </div>
 
+        {/* RERA Approval Strip */}
+        <div className="my-8 py-4 px-5 sm:px-6 rounded-2xl bg-white/[0.04] border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+          <div className="flex flex-wrap items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-[#C5A880] animate-pulse shrink-0" />
+            <span className="text-white/70 font-medium">Karnataka RERA Registration No:</span>
+            <strong className="text-white font-mono tracking-wider font-semibold text-xs sm:text-sm bg-white/10 px-3 py-1 rounded-lg border border-white/10">
+              {projectSnapshot.reraNumber}
+            </strong>
+          </div>
+          <span className="text-[11px] text-white/50">
+            Available at{" "}
+            <a
+              href="https://rera.karnataka.gov.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#C5A880] hover:underline font-medium"
+            >
+              rera.karnataka.gov.in
+            </a>
+          </span>
+        </div>
+
         {/* Bottom Compliance & Legal Row */}
-        <div className="pt-8 sm:pt-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs text-white/50">
+        <div className="pt-4 sm:pt-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs text-white/50 border-t border-white/5">
           <div>
             <p className="text-[11px] text-white/40 max-w-2xl">
-              All plans, images, and dimensions are for conceptual illustration purposes only and subject to regulatory approvals.
+              All plans, images, and dimensions are for conceptual illustration purposes only and subject to regulatory approvals. RERA No: {projectSnapshot.reraNumber}.
             </p>
           </div>
 

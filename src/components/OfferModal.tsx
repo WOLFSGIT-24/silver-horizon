@@ -7,19 +7,43 @@ interface OfferModalProps {
   isOpen: boolean;
   onClose: () => void;
   onAddLead: (lead: any) => void;
+  title?: string;
+  subtitle?: string;
+  submitButtonText?: string;
+  initialUnitType?: string | null;
+  source?: string;
+  successTitle?: string;
+  successSubtitle?: string;
 }
 
-export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalProps) {
+export default function OfferModal({
+  isOpen,
+  onClose,
+  onAddLead,
+  title = "Experience Silver Horizon",
+  subtitle = "Connect directly with our relationship manager for floor plans, custom pricing, and private site walkthroughs.",
+  submitButtonText = "SCHEDULE PRIVATE VISIT",
+  initialUnitType,
+  source = "popup_enquiry_modal",
+  successTitle = "Request Received",
+  successSubtitle = "Thank you! Our relationship team from GreenEdge Infracon has received your inquiry and will contact you promptly.",
+}: OfferModalProps) {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
-    unitPreference: "3 BHK (1890 to 2015 SQFT)",
+    unitPreference: initialUnitType || "3 BHK (1890 to 2015 SQFT)",
     agree: true,
   });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    if (initialUnitType) {
+      setFormData((prev) => ({ ...prev, unitPreference: initialUnitType }));
+    }
+  }, [initialUnitType]);
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -98,7 +122,7 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
       fullName: formData.fullName,
       email: formData.email,
       phone: formData.phone,
-      source: "popup_enquiry_modal",
+      source: source || "popup_enquiry_modal",
       status: "Pending",
       notes: `Preference: ${formData.unitPreference}`,
       unitType: formData.unitPreference,
@@ -135,10 +159,10 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
                 GreenEdge Infracon
               </span>
               <h3 className="font-display text-lg sm:text-xl font-bold text-white mt-0.5">
-                Experience Silver Horizon
+                {title}
               </h3>
               <p className="font-body text-xs text-white/70 mt-1 leading-relaxed">
-                Connect directly with our relationship manager for floor plans, custom pricing, and private site walkthroughs.
+                {subtitle}
               </p>
             </div>
 
@@ -226,7 +250,7 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
                 {loading ? (
                   <span className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                 ) : (
-                  "SCHEDULE PRIVATE VISIT"
+                  submitButtonText
                 )}
               </button>
             </div>
@@ -236,9 +260,9 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
             <div className="h-14 w-14 bg-green-50 border border-green-200 rounded-full flex items-center justify-center text-green-600 shadow-sm">
               <Check className="h-7 w-7" />
             </div>
-            <h3 className="font-display text-2xl font-bold text-[#0E172A]">Request Received</h3>
+            <h3 className="font-display text-2xl font-bold text-[#0E172A]">{successTitle}</h3>
             <p className="font-body text-xs text-[#4A5260] leading-relaxed max-w-xs">
-              Thank you! Our relationship team from GreenEdge Infracon has received your inquiry and will contact you promptly.
+              {successSubtitle}
             </p>
           </div>
         )}

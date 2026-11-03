@@ -60,7 +60,7 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
           <div className="space-y-2">
             <h3 className="font-display text-lg font-bold text-[#0E172A]">2. Statutory Compliance & Approvals</h3>
             <p>
-              The project is sanctioned with BDA Approval, Environmental Clearances (SEIAA), KSPCB, Fire Safety NOC, and Karnataka RERA Registration. All dimensions adhere to RERA carpet area standards.
+              The project is sanctioned with BDA Approval, Environmental Clearances (SEIAA), KSPCB, Fire Safety NOC, and Karnataka RERA Registration No. <strong>{projectSnapshot.reraNumber}</strong>. All dimensions adhere to RERA carpet area standards.
             </p>
           </div>
 

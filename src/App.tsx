@@ -34,24 +34,45 @@ export default function App() {
   const [preselectedUnit, setPreselectedUnit] = useState<string | null>(null);
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
   const [triggerDownload, setTriggerDownload] = useState(false);
-  const [floorPlansUnlocked, setFloorPlansUnlocked] = useState(() => {
+  const [plansUnlocked, setPlansUnlocked] = useState(() => {
     try {
-      return localStorage.getItem("silver_horizon_floor_plans_unlocked") === "true";
+      return sessionStorage.getItem("silver_horizon_plans_unlocked") === "true";
     } catch {
       return false;
     }
   });
 
+  const [offerModalConfig, setOfferModalConfig] = useState<{
+    title?: string;
+    subtitle?: string;
+    submitButtonText?: string;
+    source?: string;
+    successTitle?: string;
+    successSubtitle?: string;
+    initialUnitType?: string | null;
+  }>({});
+
   const modalInteractedRef = useRef(false);
 
   // Auto-trigger enquiry popup modal 4 seconds after site load
   useEffect(() => {
+    // Clean up any legacy localStorage key to ensure fresh visit gating
+    try {
+      localStorage.removeItem("silver_horizon_floor_plans_unlocked");
+    } catch {}
+
     // Prefetch OfferModal bundle for instant rendering
     import("./components/OfferModal");
 
     const timer = setTimeout(() => {
       if (!modalInteractedRef.current) {
         modalInteractedRef.current = true;
+        setOfferModalConfig({
+          title: "Experience Silver Horizon",
+          subtitle: "Connect directly with our relationship manager for floor plans, custom pricing, and private site walkthroughs.",
+          submitButtonText: "SCHEDULE PRIVATE VISIT",
+          source: "auto_popup_modal",
+        });
         setOfferOpen(true);
       }
     }, 4000);
@@ -95,11 +116,11 @@ export default function App() {
     const updated = [newLead, ...leads];
     saveLeadsToCache(updated);
     try {
-      localStorage.setItem("silver_horizon_floor_plans_unlocked", "true");
+      sessionStorage.setItem("silver_horizon_plans_unlocked", "true");
     } catch (e) {
       console.error(e);
     }
-    setFloorPlansUnlocked(true);
+    setPlansUnlocked(true);
 
     if (triggerDownload) {
       try {
@@ -137,14 +158,40 @@ export default function App() {
     saveLeadsToCache([...extraSeeds, ...leads]);
   };
 
+  const handleUnlockPlans = (unitType?: string) => {
+    modalInteractedRef.current = true;
+    setOfferModalConfig({
+      title: "Unlock Architectural Plans",
+      subtitle: "Enter your details to instantly unlock high-resolution floor plans, master layout, and private pricing.",
+      submitButtonText: "UNLOCK PLANS & PRICING",
+      source: "unlock_plans_modal",
+      successTitle: "Plans Unlocked!",
+      successSubtitle: "Thank you! The architectural floor plans & master layout are now fully unlocked for you to explore.",
+      initialUnitType: unitType || null,
+    });
+    setOfferOpen(true);
+  };
+
   const handleSelectUnitType = (unitType: string) => {
     modalInteractedRef.current = true;
     setPreselectedUnit(unitType);
+    setOfferModalConfig({
+      title: "Residence Details & Pricing",
+      subtitle: `Inquire about ${unitType} with floor plans, payment schedule, and custom quotes.`,
+      submitButtonText: "REQUEST RESIDENCE DETAILS",
+      source: "unit_selection_modal",
+    });
     setOfferOpen(true);
   };
 
   const handleHeroEnquiry = () => {
     modalInteractedRef.current = true;
+    setOfferModalConfig({
+      title: "Experience Silver Horizon",
+      subtitle: "Connect directly with our relationship manager for floor plans, custom pricing, and private site walkthroughs.",
+      submitButtonText: "SCHEDULE PRIVATE VISIT",
+      source: "hero_enquiry_modal",
+    });
     setOfferOpen(true);
   };
 
@@ -155,6 +202,12 @@ export default function App() {
         onOpenBooking={() => {
           modalInteractedRef.current = true;
           setPreselectedUnit(null);
+          setOfferModalConfig({
+            title: "Experience Silver Horizon",
+            subtitle: "Connect directly with our relationship manager for floor plans, custom pricing, and private site walkthroughs.",
+            submitButtonText: "SCHEDULE PRIVATE VISIT",
+            source: "header_enquiry_modal",
+          });
           setOfferOpen(true);
         }}
         onToggleAdmin={() => setAdminOpen(!adminOpen)}
@@ -186,6 +239,8 @@ export default function App() {
         <MasterPlan 
           onSelectUnit={handleSelectUnitType} 
           onOpenBooking={handleHeroEnquiry}
+          isUnlocked={plansUnlocked}
+          onUnlockRequest={() => handleUnlockPlans("All Configurations")}
         />
 
         {/* Curated Amenities Showcase (Clubhouse, Sports, Nature, Smart Living) */}
@@ -197,11 +252,8 @@ export default function App() {
         {/* Interactive Floor Drafting Plans (Units 01-07, 4 BHK Duplex) */}
         <FloorPlans 
           onSelectUnit={handleSelectUnitType} 
-          isUnlocked={floorPlansUnlocked}
-          onUnlockRequest={() => {
-            modalInteractedRef.current = true;
-            setBookingOpen(true);
-          }}
+          isUnlocked={plansUnlocked}
+          onUnlockRequest={handleUnlockPlans}
           onOpenBooking={handleHeroEnquiry}
         />
 
@@ -241,6 +293,12 @@ export default function App() {
           onClick={() => {
             modalInteractedRef.current = true;
             setPreselectedUnit(null);
+            setOfferModalConfig({
+              title: "Experience Silver Horizon",
+              subtitle: "Connect directly with our relationship manager for floor plans, custom pricing, and private site walkthroughs.",
+              submitButtonText: "SCHEDULE PRIVATE VISIT",
+              source: "mobile_bottom_bar_modal",
+            });
             setOfferOpen(true);
           }}
           className="flex-1 flex items-center justify-center bg-[#C5A880] hover:bg-[#D4BC98] text-[#0E172A] font-body text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl transition-all shadow-md active:scale-[0.98] cursor-pointer"
@@ -323,6 +381,13 @@ export default function App() {
               setOfferOpen(false);
             }}
             onAddLead={handleAddLead}
+            initialUnitType={offerModalConfig.initialUnitType || preselectedUnit}
+            title={offerModalConfig.title}
+            subtitle={offerModalConfig.subtitle}
+            submitButtonText={offerModalConfig.submitButtonText}
+            source={offerModalConfig.source}
+            successTitle={offerModalConfig.successTitle}
+            successSubtitle={offerModalConfig.successSubtitle}
           />
         )}
       </Suspense>

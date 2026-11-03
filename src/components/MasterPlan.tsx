@@ -1,13 +1,28 @@
 import React, { useState } from "react";
-import { ZoomIn, X } from "lucide-react";
+import { ZoomIn, X, Lock } from "lucide-react";
 
 interface MasterPlanProps {
   onSelectUnit?: (unitType: string) => void;
   onOpenBooking?: () => void;
+  isUnlocked: boolean;
+  onUnlockRequest: () => void;
 }
 
-export default function MasterPlan({ onSelectUnit, onOpenBooking }: MasterPlanProps) {
+export default function MasterPlan({
+  onSelectUnit,
+  onOpenBooking,
+  isUnlocked,
+  onUnlockRequest,
+}: MasterPlanProps) {
   const [modalOpen, setModalOpen] = useState(false);
+
+  const handleOpenMasterPlan = () => {
+    if (!isUnlocked) {
+      onUnlockRequest();
+    } else {
+      setModalOpen(true);
+    }
+  };
 
   return (
     <section id="master-plan" className="w-full py-16 sm:py-24 bg-[#FAF8F5] text-[#161A22] overflow-hidden font-body">
@@ -30,11 +45,20 @@ export default function MasterPlan({ onSelectUnit, onOpenBooking }: MasterPlanPr
             </p>
             <div>
               <button
-                onClick={() => setModalOpen(true)}
+                onClick={handleOpenMasterPlan}
                 className="bg-black hover:bg-neutral-800 text-white font-body text-xs sm:text-sm font-semibold px-8 py-3.5 rounded-full transition-all shadow-md hover:scale-105 active:scale-95 cursor-pointer tracking-wide inline-flex items-center justify-center gap-2"
               >
-                <ZoomIn className="h-4 w-4" />
-                <span>Enlarge Master Plan</span>
+                {!isUnlocked ? (
+                  <>
+                    <Lock className="h-4 w-4 text-[#C5A880]" />
+                    <span>Unlock Master Plan</span>
+                  </>
+                ) : (
+                  <>
+                    <ZoomIn className="h-4 w-4" />
+                    <span>Enlarge Master Plan</span>
+                  </>
+                )}
               </button>
             </div>
           </div>
@@ -46,23 +70,53 @@ export default function MasterPlan({ onSelectUnit, onOpenBooking }: MasterPlanPr
           
           {/* Main Master Plan Image Container */}
           <div
-            onClick={() => setModalOpen(true)}
+            onClick={handleOpenMasterPlan}
             className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] bg-[#FAF8F5] rounded-xl sm:rounded-2xl overflow-hidden flex items-center justify-center cursor-pointer border border-gray-100"
           >
             <img
               src="/assets/silver_horizon/master_plan_layout.webp"
               alt="Silver Horizon Master Plan Blueprint"
               loading="lazy"
-              className="w-full h-full object-contain p-2 sm:p-6 transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+              className={`w-full h-full object-contain p-2 sm:p-6 transition-all duration-700 ease-out ${
+                !isUnlocked 
+                  ? "filter blur-md md:blur-lg scale-110 opacity-55 select-none pointer-events-none" 
+                  : "group-hover:scale-[1.02]"
+              }`}
             />
 
-            {/* Subtle Zoom Hint on Hover */}
-            <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-              <div className="bg-black/80 backdrop-blur-md text-white px-5 py-2.5 rounded-full text-xs font-semibold flex items-center gap-2 shadow-lg">
-                <ZoomIn className="h-4 w-4" />
-                <span>Click to expand full blueprint</span>
+            {/* If Locked, show sleek Unlock prompt overlay */}
+            {!isUnlocked ? (
+              <div className="absolute inset-0 bg-[#090F1D]/30 backdrop-blur-[1px] flex items-center justify-center p-4">
+                <div className="bg-[#0E172A]/90 backdrop-blur-md text-white p-6 sm:p-8 rounded-2xl shadow-2xl border border-white/10 flex flex-col items-center text-center max-w-sm sm:max-w-md group-hover:scale-105 transition-transform">
+                  <div className="w-12 h-12 rounded-full bg-[#C5A880]/20 border border-[#C5A880]/30 flex items-center justify-center text-[#C5A880] mb-3">
+                    <Lock className="h-6 w-6" />
+                  </div>
+                  <h4 className="font-display text-lg sm:text-xl font-bold text-white tracking-tight">
+                    Site Master Plan Blueprint
+                  </h4>
+                  <p className="text-xs sm:text-sm text-white/70 font-body mt-1.5 leading-relaxed">
+                    Enter your details to instantly unlock the full master layout, 76% landscaped open zones, and regional road connectivity.
+                  </p>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onUnlockRequest();
+                    }}
+                    className="mt-4 bg-[#C5A880] hover:bg-[#D4BC98] text-[#0E172A] font-body text-xs font-bold uppercase tracking-wider px-7 py-3 rounded-full transition-all shadow-md cursor-pointer hover:scale-105"
+                  >
+                    Unlock Master Plan
+                  </button>
+                </div>
               </div>
-            </div>
+            ) : (
+              /* Subtle Zoom Hint on Hover when Unlocked */
+              <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                <div className="bg-black/80 backdrop-blur-md text-white px-5 py-2.5 rounded-full text-xs font-semibold flex items-center gap-2 shadow-lg">
+                  <ZoomIn className="h-4 w-4" />
+                  <span>Click to expand full blueprint</span>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Road Connectivity Footnotes */}

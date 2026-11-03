@@ -9,22 +9,64 @@ export default function Amenities({ onOpenBooking, onRequestDownload }: Amenitie
   // Curated slider items from Amanites
   const sliderItems = [
     {
-      src: "/assets/silver_horizon/amenities_slide_03.webp",
-      title: "The Pavilion Clubhouse Pool",
-      subtitle: "Indoor Temperature Controlled Heated Pool & Spa Lounge",
-      category: "14,962 SQFT OF LUXURY",
-    },
-    {
-      src: "/assets/silver_horizon/amenities_slide_02.webp",
-      title: "Strength & Cardio Gymnasium",
-      subtitle: "State of the Art Fitness Arena & Training Zone",
-      category: "HEALTH & WELLNESS",
-    },
-    {
       src: "/assets/silver_horizon/amenities_slide_01.webp",
       title: "Open Air Sunken Pool Deck",
       subtitle: "Scenic Sun Deck with Built-in Water Recliners & Cabanas",
       category: "SERENITY & RELAXATION",
+    },
+    {
+      src: "/assets/silver_horizon/amenities_slide_02.webp",
+      title: "Strength & Cardio Gymnasium",
+      subtitle: "State-of-the-Art Fitness Arena & High-Performance Training Zone",
+      category: "HEALTH & WELLNESS",
+    },
+    {
+      src: "/assets/silver_horizon/amenities_slide_03.webp",
+      title: "Zen Yoga & Meditation Sanctuary",
+      subtitle: "Dedicated Aerobics & Mindfulness Studio with Hardwood Floors",
+      category: "MIND & BODY",
+    },
+    {
+      src: "/assets/silver_horizon/amenities_slide_04.webp",
+      title: "Grand Banquet & Multipurpose Hall",
+      subtitle: "Double-Height Celebration Arena for Community Gatherings & Festivities",
+      category: "CELEBRATIONS & EVENTS",
+    },
+    {
+      src: "/assets/silver_horizon/amenities_slide_05.webp",
+      title: "Indoor Games & Recreational Lounge",
+      subtitle: "Air Hockey, Table Tennis, Foosball & Board Games Zone",
+      category: "RECREATION & LEISURE",
+    },
+    {
+      src: "/assets/silver_horizon/amenities_slide_06.webp",
+      title: "The Pavilion Clubhouse Grand Lobby",
+      subtitle: "High-Ceiling Welcome Lounge with Concierge & Bespoke Seating",
+      category: "ARRIVAL EXPERIENCE",
+    },
+    {
+      src: "/assets/silver_horizon/amenities_slide_07.webp",
+      title: "The Pavilion Amphitheatre",
+      subtitle: "Tiered Open-Air Lawn with Giant Outdoor LED Projection Screen",
+      category: "COMMUNITY & ENTERTAINMENT",
+    },
+    {
+      src: "/assets/silver_horizon/amenities_slide_08.webp",
+      title: "Multipurpose Basketball & Sports Court",
+      subtitle: "Professional Court Flooring with High-Power LED Floodlights",
+      category: "ACTIVE SPORTS",
+    },
+    {
+      src: "/assets/silver_horizon/amenities_slide_09.webp",
+      title: "Executive Co-Working & Meeting Pods",
+      subtitle: "High-Speed Connected Workstations & Private Conference Pods",
+      category: "PRODUCTIVITY & WORK",
+    },
+    {
+      src: "/assets/silver_horizon/amenities_slide_10.webp",
+      title: "Children's Adventure Play Area",
+      subtitle: "Multi-Level Activity Towers, Rubberized Flooring & Interactive Play",
+      category: "KIDS & FAMILY",
     },
   ];
 
